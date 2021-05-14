@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<body class="index-page-body" style="background: url({{ HomePageCustomisation.image.url }});">
+
+    <div class="home-page-bg-img-wrap">
+        {% for home_page_custom in home_page_customisation  %}
+        <img class="home-page-bg-image" src="{{ home_page_custom.image.url }}">
+        {% endfor %}
+    </div>
+
+    <div class="container h-100">
+        <div class="row h-100 mt-5">
+            <div class="col-7 col-md-12 my-auto">
+                {% for home_page_custom in home_page_customisation  %}
+                <h1 class="display-4 logo-font new-collections-text">
+                    {{ home_page_custom.home_page_title }}
+                </h1>
+                {% endfor %}
+                <div class="my-5">
+                    <h4>
+                        <a href="{% url 'products' %}"
+                            class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop
+                            Now
+                        </a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
