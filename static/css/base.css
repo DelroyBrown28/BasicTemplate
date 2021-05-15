@@ -57,6 +57,17 @@ body {
     border: 1px solid black !important;
 }
 
+.bg-black {
+    background-color: #222 !important;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.bg-black h5 {
+    font-weight: 300 !important;
+    
+}
+
 .dropdown-toggle::after {
     display: none !important;
 }
