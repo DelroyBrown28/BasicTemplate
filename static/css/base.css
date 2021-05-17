@@ -65,7 +65,7 @@ body {
 
 .bg-black h5 {
     font-weight: 300 !important;
-    
+
 }
 
 .dropdown-toggle::after {
@@ -105,4 +105,14 @@ body {
         padding-top: 164px;
     }
 
+}
+
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
 }
