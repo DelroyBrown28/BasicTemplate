@@ -1,10 +1,9 @@
 {% block content %}
 
 <div class="collapse navbar-collapse" id="main-nav">
-    <ul class="navbar-nav w-auto max-auto">
+    <ul class="navbar-nav w-100 max-auto flexed">
         <li class="nav-item dropdown">
-
-            <a class="logo-font font-weight-bold nav-link text-black mr-5 dropdown-toggle" href="{% url 'products' %}" id="all-products-link"
+            <a class="logo-font font-weight-bold nav-link text-black" href="{% url 'products' %}" id="all-products-link"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Products
             </a>
@@ -17,7 +16,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5 dropdown-toggle" href="#" id="clothing-link"
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="clothing-link"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Clothing
             </a>
@@ -32,7 +31,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5 dropdown-toggle" href="#" id="homeware-link"
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="homeware-link"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Homeware
             </a>
@@ -44,7 +43,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black dropdown-toggle" href="#" id="specials-link" data-toggle="dropdown"
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 Special Offers
             </a>
@@ -59,5 +58,7 @@
 
     </ul>
 </div>
+
+
 
 {% endblock content %}
