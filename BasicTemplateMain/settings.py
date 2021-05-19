@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     
     'home',
     'products',
+    'bag',
 ]
 
 SITE_ID = 1
