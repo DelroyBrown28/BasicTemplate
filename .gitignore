@@ -124,6 +124,7 @@ venv.bak/
 /site
 
 .vscode
+.env
 
 # mypy
 .mypy_cache/
