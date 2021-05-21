@@ -9,6 +9,7 @@
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
+
 }
 
 .StripeElement--focus,
@@ -30,7 +31,7 @@
   right: .5rem;
 }
 
-#payment-form .form-control,
+#-form .form-control,
 #card-element {
   color: #000;
   border: 1px solid #000;
@@ -56,6 +57,7 @@ select option[value=""] {
   background: rgba(23, 162, 184, .85);
   z-index: 9999;
 }
+
 
 .loading-spinner {
   display: flex;
