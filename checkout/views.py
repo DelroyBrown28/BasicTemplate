@@ -28,7 +28,6 @@ def cache_checkout_data(request):
             processed right now. Please refresh the page and try again.')
         return HttpResponse(content=e, status=400)
 
-
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -134,7 +133,6 @@ def checkout(request):
     }
 
     return render(request, template, context)
-
 
 def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
