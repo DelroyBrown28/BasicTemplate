@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpR
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 from .forms import OrderForm
@@ -169,5 +171,23 @@ def checkout_success(request, order_number):
     context = {
         'order': order,
     }
+    
+    def _send_confirmation_email(self, order):
+        """Sends the user a confirmation email"""
+    cust_email = order.email
+    
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_subject.txt',
+        {'order' : order})
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {'order' : order, 'contact_email' : settings.DEFAULT_FROM_EMAIL})
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [cust_email],
+    )
+
     return render(request, template, context)
     
