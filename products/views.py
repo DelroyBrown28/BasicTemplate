@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category
+from .forms import ProductForm
 
 
 
@@ -59,8 +60,6 @@ def all_products(request):
     
     return render(request, 'products/products.html', product_context)
 
-
-
 def product_detail(request, product_id):
     """Displays individual products."""
     product = get_object_or_404(Product, pk=product_id)
@@ -71,3 +70,24 @@ def product_detail(request, product_id):
     
     return render(request, 'products/product_detail.html', product_context)
 
+def add_product(request):
+    """To quickly add a product to the store"""
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add product! Please check all details and try again.')
+    else:
+        form = ProductForm()
+    
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form' : form,
+    }
+    
+    return render(request, template, context)
+    
