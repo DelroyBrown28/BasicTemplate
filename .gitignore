@@ -125,6 +125,7 @@ venv.bak/
 
 .vscode
 .env
+env.py
 
 # mypy
 .mypy_cache/
