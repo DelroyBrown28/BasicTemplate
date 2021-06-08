@@ -19,8 +19,8 @@ ALLOWED_HOSTS = ['nueui-basictemplate.herokuapp.com', 'localhost']
 
 
 INSTALLED_APPS = [
-    'jet.dashboard',
-    'jet',
+    # 'jet.dashboard',
+    # 'jet',
     
     'django.contrib.admin',
     'django.contrib.auth',
