@@ -45,6 +45,10 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+JET_SIDE_MENU_COMPACT = True
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 

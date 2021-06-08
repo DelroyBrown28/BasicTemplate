@@ -7,9 +7,6 @@ from products.models import Product
 # from wagtail.documents.models import Document
 
 
- 
-
-
 admin.site.unregister(Site)
 # admin.site.unregister(Tag)
 admin.site.unregister(SocialToken)
