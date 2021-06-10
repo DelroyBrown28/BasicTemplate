@@ -173,7 +173,7 @@ def checkout_success(request, order_number):
     }
     
     def _send_confirmation_email(self, order):
-        """Sends the user a confirmation email"""
+        """Sends the user a confirmation email."""
     cust_email = order.email
     
     subject = render_to_string(
@@ -190,4 +190,3 @@ def checkout_success(request, order_number):
     )
 
     return render(request, template, context)
-    
