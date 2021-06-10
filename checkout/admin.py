@@ -45,6 +45,11 @@ class OrderAdmin(admin.ModelAdmin):
         'grand_total',
         'order_number',
     )
+    search_fields = [
+        'full_name',
+        'date',
+        'order_number',
+    ]
     ordering = ('-date',)
     
 admin.site.register(Order, OrderAdmin)

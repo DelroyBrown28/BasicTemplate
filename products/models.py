@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 
 class Category(models.Model):
@@ -7,7 +8,7 @@ class Category(models.Model):
         verbose_name = 'Categories'
     
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, blank=True, null=True)
+    friendly_name = models.CharField(max_length=254, blank=False, null=False)
     
     def __str__(self):
         return self.name
