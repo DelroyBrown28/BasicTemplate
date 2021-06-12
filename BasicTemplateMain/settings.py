@@ -183,6 +183,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Cache Control
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': 'Thu, 31 2099 20:00:00 GMT',
+    'CacheControl': 'max-age=94608000',
+}
 
 # STRIPE STUFF
 FREE_DELIVERY_THRESHOLD = 50
