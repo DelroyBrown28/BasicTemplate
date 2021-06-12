@@ -68,7 +68,6 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
     
-    
 
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
@@ -170,8 +169,6 @@ TIME_ZONE = 'Europe/London'
 USE_I18N = True
 
 USE_L10N = True
-
-
 
 
 STATIC_URL = '/static/'

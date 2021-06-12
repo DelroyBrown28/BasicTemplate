@@ -2,7 +2,7 @@ Hello {{ order.full_name }}!
 
 This is a confirmation of your order at Nue Store. Your order information is below:
 
-Order Number: {{ order.order_number }}
+Order Number: <strong>{{ order.order_number }}</strong>
 Order Date: {{ order.date }}
 
 Order Total: {{ order.order_total }}
