@@ -6,6 +6,11 @@
     justify-content: center;
 }
 
+.redborder {
+    border: 1px solid red;
+}
+
+
 html {
     height: 100%;
 }

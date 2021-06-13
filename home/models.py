@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class HomePageSuperuserAdmin(models.Model):
+    background_image = models.ImageField(upload_to='media')
+    
+ 

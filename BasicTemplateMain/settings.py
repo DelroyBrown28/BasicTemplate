@@ -19,9 +19,10 @@ ALLOWED_HOSTS = ['nueui-basictemplate.herokuapp.com', 'localhost', '*']
 
 
 INSTALLED_APPS = [
+    #Jet Stuff
     'jet.dashboard',
     'jet',
-    
+    # Django Stuff
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -29,19 +30,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
+    # Allauth Stuff
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    
+    # My Stuff
     'home',
     'products',
     'bag',
     'checkout',
     'profiles',
-    
+    # Other
     'crispy_forms',
     'storages',
+    'modelcluster',
+    'taggit',
 ]
 
 SITE_ID = 1
@@ -81,6 +84,7 @@ LOGIN_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -92,6 +96,9 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'BasicTemplateMain.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+WAGTAIL_SITE_NAME = 'My Example Site'
+
 
 TEMPLATES = [
     {
