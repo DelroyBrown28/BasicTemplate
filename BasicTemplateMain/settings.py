@@ -43,8 +43,7 @@ INSTALLED_APPS = [
     # Other
     'crispy_forms',
     'storages',
-    'modelcluster',
-    'taggit',
+
 ]
 
 SITE_ID = 1
