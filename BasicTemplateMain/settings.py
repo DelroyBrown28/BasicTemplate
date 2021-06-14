@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'jet',
     # Django Stuff
     'django.contrib.admin',
-    'djrichtextfield',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -52,25 +51,6 @@ SITE_ID = 1
 JET_SIDE_MENU_COMPACT = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
-
-
-
-DJRICHTEXTFIELD_CONFIG = {
-    'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
-    'init_template': 'djrichtextfield/init/tinymce.js',
-    'settings': {  # CKEditor
-        'toolbar': [
-            {'items': ['Format', '-', 'Bold', 'Italic', '-',
-                    'RemoveFormat']},
-            {'items': ['Link', 'Unlink', 'Image', 'Table']},
-            {'items': ['Source']}
-        ],
-        'format_tags': 'p;h1;h2;h3',
-        'width': 700
-}
-}
-
-
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

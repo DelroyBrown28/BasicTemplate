@@ -40,6 +40,42 @@ body {
 
 }
 
+.main-page-title__admin {
+    color: #000;
+}
+
+.admin-color__black {
+    color: black;
+}
+
+.admin-color__white {
+    color: white;
+}
+
+.admin-color__red {
+    color: red;
+}
+
+.admin-color__blue {
+    color: blue;
+}
+
+.admin-color__green {
+    color: green;
+}
+
+.text-align__left {
+    text-align: left;
+}
+
+.text-align__right {
+    text-align: right;
+}
+
+.text-align__center {
+    text-align: center;
+}
+
 
 .icon {
     align-items: center;
