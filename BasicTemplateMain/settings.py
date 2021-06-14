@@ -186,7 +186,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cache Control
 AWS_S3_OBJECT_PARAMETERS = {
-    'Expires': 'Thu, 31 2099 20:00:00 GMT',
+    # 'Expires': 'Thu, 31 2099 20:00:00 GMT',
     'CacheControl': 'max-age=94608000',
 }
 
