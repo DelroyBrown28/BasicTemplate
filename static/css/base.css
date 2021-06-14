@@ -16,13 +16,30 @@ html {
 }
 
 body {
-    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
-    background-size: cover;
+    /* background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed; */
     height: calc(100vh - 164px);
     color: #555;
     scroll-behavior: smooth;
     font-family: 'Lato', sans-serif;
 }
+
+.home-body {
+    height: calc(100% - 164px);
+    overflow: hidden;
+
+
+}
+
+.homepage-bg-image {
+    position: absolute;
+    /* height: calc(100vh - 164px); */
+    height: 100%;
+    background: no-repeat center center fixed;
+    background-size: cover !important;
+    transform: translateY(-5px);
+
+}
+
 
 .icon {
     align-items: center;
