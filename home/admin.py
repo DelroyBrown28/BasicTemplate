@@ -4,17 +4,19 @@ from django.contrib.sites.models import Site
 from allauth.socialaccount.models import SocialToken, SocialAccount, SocialApp
 from products.models import Product
 from .models import HomePageCustomisation
-# from wagtail.images.models import Image
-# from wagtail.documents.models import Document
 
 
 
-admin.site.register(HomePageCustomisation)
+class HomePageCustomisationAdmin(admin.ModelAdmin):
+    list_display = (
+        'image_title_for_backend',
+    )
+
+
+
+admin.site.register(HomePageCustomisation, HomePageCustomisationAdmin)
 admin.site.unregister(Site)
-# admin.site.unregister(Tag)
 admin.site.unregister(SocialToken)
 admin.site.unregister(SocialAccount)
 admin.site.unregister(SocialApp)
-# admin.site.unregister(Document)
-# admin.site.unregister(Image)
 
