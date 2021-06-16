@@ -12,17 +12,13 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <script src="{% url 'jet:jsi18n' %}"></script>
 
-    <script src="{% static "jet/js/build/bundle.min.js" as url %}{{ url|jet_append_version }}"></script>
+    <!-- <script src="{% static "jet/js/build/bundle.min.js" as url %}{{ url|jet_append_version }}"></script> -->
+    <script src="{% static 'jet/js/build/bundle.min.js' %}"></script>
     <link rel="stylesheet" type="text/css"
         href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
-
-    <link rel="stylesheet" type="text/css"
-        href="{% static "jet/css/vendor.css" as url %}{{ url|jet_append_version }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{% static "jet/css/icons/style.css" as url %}{{ url|jet_append_version }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{% static "jet/css/themes/"|add:THEME|add:"/base.css" as url %}{{ url|jet_append_version }}"
-        class="base-stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static 'jet/css/vendor.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'jet/css/icons/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'jet/css/themes/default/base.css' %}">
     <link rel="stylesheet" type="text/css"
         href="{% static "jet/css/themes/"|add:THEME|add:"/select2.theme.css" as url %}{{ url|jet_append_version }}"
         class="select2-stylesheet" />
@@ -32,8 +28,10 @@
 
     {% block extrastyle %}{% endblock %}
     {% if LANGUAGE_BIDI %}
-    <link rel="stylesheet" type="text/css"
-        href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
+    <!-- <link rel="stylesheet" type="text/css"
+        href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" /> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'jet/css/admin/rtl.css' %}">
+    {% endif %}
     {% jet_get_date_format as date_format %}
     {% jet_get_time_format as time_format %}
     {% jet_get_datetime_format as datetime_format %}
@@ -54,7 +52,7 @@
     {% block extrahead %}{% endblock %}
     {% block blockbots %}
     <meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
-    
+
 </head>
 {% load i18n %}
 
