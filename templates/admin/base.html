@@ -10,6 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <script src="{% url 'jet:jsi18n' %}"></script>
+
+    <script src="{% static "jet/js/build/bundle.min.js" as url %}{{ url|jet_append_version }}"></script>
     <link rel="stylesheet" type="text/css"
         href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
 
@@ -34,11 +37,7 @@
     {% jet_get_date_format as date_format %}
     {% jet_get_time_format as time_format %}
     {% jet_get_datetime_format as datetime_format %}
-    <script>
-        django.gettext = window.gettext
-    </script>
-    {{ block.super }}
-    <script src="{% url 'jet:jsi18n' %}"></script>
+
 
     <script type="text/javascript" charset="utf-8">
         var DATE_FORMAT = "{{ date_format }}";
@@ -46,7 +45,6 @@
         var DATETIME_FORMAT = "{{ datetime_format }}";
     </script>
 
-    <script src="{% static "jet/js/build/bundle.min.js" as url %}{{ url|jet_append_version }}"></script>
 
     {% jet_static_translation_urls as translation_urls %}
     {% for url in translation_urls %}
@@ -56,6 +54,7 @@
     {% block extrahead %}{% endblock %}
     {% block blockbots %}
     <meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+    
 </head>
 {% load i18n %}
 
