@@ -1,8 +1,10 @@
 import os
 from django.contrib import admin
 from django.urls import path, include, re_path
+from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from .admin import superadmin, provideradmin
 
 
 urlpatterns = [
@@ -10,6 +12,8 @@ urlpatterns = [
     path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     # Main Admin URL
     path('admin/', admin.site.urls),
+    path('superadmin/', superadmin.urls),
+    path('provideradmin/', provideradmin.urls), 
     # Website URLs
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),  
