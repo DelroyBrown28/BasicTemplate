@@ -1,12 +1,7 @@
 from django.contrib.admin import AdminSite
 
-class EmployeeAdminSite(AdminSite):
+class SuperAdminSite(AdminSite):
     site_header = 'Coffeehouse Employee admin'
 
-superadmin = EmployeeAdminSite(name='superadmin')
+superadmin = SuperAdminSite(name='superadmin')
 
-
-class ProviderAdminSite(AdminSite):
-    site_header = 'Coffeehouse Provider admin'
-
-provideradmin = ProviderAdminSite(name='provideradmin')
