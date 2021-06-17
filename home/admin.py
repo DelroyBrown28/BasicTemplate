@@ -8,11 +8,17 @@ from .models import HomePageCustomisation, HeaderCustomisation
 from BasicTemplateMain.admin import superadmin
 
 
+# Superuser admin models
 class HomePageCustomisationAdmin(admin.ModelAdmin):
     list_display = (
         'name_these_changes',
-        'main_page_text',
+        'do_not_display',
     )
+    list_editable = (
+        'do_not_display',
+       
+    )
+
     
 class HeaderCustomisationAdmin(admin.ModelAdmin):
    list_display = (
@@ -24,7 +30,8 @@ class HeaderCustomisationAdmin(admin.ModelAdmin):
        
    )
 
-       
+
+# Store owners admin models     
 class OrderLineItemAdminInline(admin.TabularInline):
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)

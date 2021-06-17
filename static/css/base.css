@@ -44,6 +44,10 @@ body {
     display: none !important;
 }
 
+.header-logo {
+    height: 55px;
+}
+
 
 .main-page-title__admin { 
     color: #000;
