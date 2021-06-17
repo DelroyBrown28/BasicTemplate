@@ -9,11 +9,20 @@ class HomePageCustomisation(models.Model):
         ('admin-color__black', 'Black'),
         ('admin-color__white', 'White'),
     )
+    BACKGROUND_COLOR_CLASS_CHOICES = (
+        ('admin-bg-color__red', 'Red'),
+        ('admin-bg-color__blue', 'Blue'),
+        ('admin-bg-color__green', 'Green'),
+        ('admin-bg-color__black', 'Black'),
+        ('admin-bg-color__white', 'White'),
+    )
     name_these_changes = models.CharField(blank=False, null=False, max_length=35, default="image title...")
     image = models.ImageField(null=True, blank=True)
     main_page_text = models.TextField(blank=False, null=False, max_length=3500)
     main_page_text_color = models.TextField(choices=TEXT_COLOR_CLASS_CHOICES, default='Pick a color')
     button_text = models.CharField(blank=False, null=False, max_length=15, default='Shop Now')
+    button_text_color = models.TextField(choices=TEXT_COLOR_CLASS_CHOICES, default='Pick a color')
+    button_background_color = models.CharField(choices=BACKGROUND_COLOR_CLASS_CHOICES, blank=False, null=False, max_length=30, default="Blue")
     
     
     class Meta:

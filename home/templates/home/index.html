@@ -32,11 +32,11 @@
 
                 <div class="my-5">
                     <h4>
-                        <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">
-                            {% for x in home_page_customisation  %}
-                            <p style="margin: 0 !important;">{{ x.button_text }}</p>
-                            {% endfor %}
+                        {% for x in home_page_customisation  %}
+                        <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3 {{ x.button_background_color }}">
+                            <p style="margin: 0 !important;" class="{{ x.button_text_color }}">{{ x.button_text }}</p>
                         </a>
+                        {% endfor %}
                     </h4>
                 </div>
 

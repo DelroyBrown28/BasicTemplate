@@ -23,7 +23,7 @@ class HeaderCustomisationAdmin(admin.ModelAdmin):
         'do_not_display',
        
    )
-  
+
        
 class OrderLineItemAdminInline(admin.TabularInline):
     model = OrderLineItem
