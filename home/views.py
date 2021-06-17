@@ -13,7 +13,7 @@ def index(request):
 
 
 def header_customisation(request):
-    
+    """Customisation for header contents"""
     header_customisation = HeaderCustomisation.objects.all()
     context = {
         'header_customisation' : header_customisation,

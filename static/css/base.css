@@ -65,6 +65,22 @@ body {
     color: green;
 }
 
+.admin-bg-color__red {
+    background-color: red !important;
+}
+.admin-bg-color__blue {
+    background-color: blue !important;
+}
+.admin-bg-color__green {
+    background-color: green !important;
+}
+.admin-bg-color__black {
+    background-color: black !important;
+}
+.admin-bg-color__white {
+    background-color: white !important;
+}
+
 .text-align__left {
     text-align: left;
 }
