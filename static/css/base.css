@@ -40,6 +40,10 @@ body {
 
 }
 
+.do-not-display {
+    display: none !important;
+}
+
 
 .main-page-title__admin { 
     color: #000;

@@ -3577,9 +3577,9 @@ p.mini {
 .help,
 p.help,
 form p.help {
-    color: #d0dbe6;
-    font-size: 12px;
-    font-size: 0.85714rem
+    color: red;
+    font-size: 15px;
+    font-size: 0.9rem
 }
 
 .help-tooltip {

@@ -81,14 +81,12 @@
         </nav>
     </div>
     {% for x in header_customisation  %}
-    <div id="delivery-banner" class="row text-center {{ x.choose_background_color_class }}">
+    <div class="{% if x.do_not_display %}
+     do-not-display {% else %} row text-center {{ x.choose_background_color_class }} {% endif %}">
         <div class="col free-delivery-wrap">
             <!-- <h5 class="free-delivery-text my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h5> -->
-          <h5 class="free-delivery-text my-1 {{ x.choose_text_color_class }}">{{ x.small_banner_text }}!</h5>
+            <h5 class="free-delivery-text my-1 {{ x.choose_text_color_class }}">{{ x.small_banner_text }}!</h5>
         </div>
     </div>
     {% endfor %}
-</header> 
-
-    
-    
+</header>
