@@ -4,13 +4,18 @@ from django.contrib.sites.models import Site
 from allauth.socialaccount.models import SocialToken, SocialAccount, SocialApp
 from products.models import Product
 from checkout.models import Order, OrderLineItem
-from .models import HomePageCustomisation
+from .models import HomePageCustomisation, HeaderCustomisation
 from BasicTemplateMain.admin import superadmin
 
 
 class HomePageCustomisationAdmin(admin.ModelAdmin):
     list_display = (
         'image_title_for_backend',
+    )
+    
+class HeaderCustomisationAdmin(admin.ModelAdmin):
+    list_display = (
+        'small_banner_text',
     )
     
 class OrderLineItemAdminInline(admin.TabularInline):
@@ -68,6 +73,7 @@ class OrderAdmin(admin.ModelAdmin):
 superadmin.register() to register for superuser admin
 """
 superadmin.register(HomePageCustomisation)
+superadmin.register(HeaderCustomisation)
 superadmin.register(Product)
 superadmin.register(Order, OrderAdmin)
 # admin.site.register(HomePageCustomisation, HomePageCustomisationAdmin)

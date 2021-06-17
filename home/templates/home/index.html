@@ -7,6 +7,7 @@
 <div class="container header-container">
     <div class="row">
         <div class="col">
+            {% include 'includes/header.html' %}
 
         </div>
     </div>
@@ -16,7 +17,6 @@
 {% block content %}
 
 <body class="home-body">
-    {% include 'includes/header.html' %}
 
     {% for x in home_page_customisation %}
     <div class="homepage-bg-image h-100 w-100 img-fluid" style="background: url({{x.image.url}});"></div>
@@ -28,7 +28,6 @@
 
 
                 {% for x in home_page_customisation  %}
-                <!-- <h1 class="display-4 logo-font text-white">The new Collections Are Here</h1> -->
                 <h1 class="display-4 logo-font text-white">{{ x.main_page_text|safe }}</h1>
                 {% endfor %}
 

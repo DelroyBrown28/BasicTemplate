@@ -1,3 +1,5 @@
+{% load i18n static %}
+
 <header class="container-fluid fixed-top">
     <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
@@ -81,10 +83,16 @@
     <div id="delivery-banner" class="row text-center bg-black">
         <div class="col free-delivery-wrap">
             <!-- <h5 class="free-delivery-text my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h5> -->
-            {% for x in home_page_customisation  %}
-            <h5 class="free-delivery-text my-1">{{ x.small_banner_text|safe }}!</h5>
-            {% endfor %}
-                
+          
+          
+          {% for x in header_customisation  %}
+          <h5 class="free-delivery-text my-1">{{ x.small_banner_text }}!</h5>
+          {% endfor %}
+              
+          
         </div>
     </div>
 </header> 
+
+    
+    

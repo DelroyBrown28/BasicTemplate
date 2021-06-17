@@ -42,7 +42,6 @@
 
 <body>
 
-  {% include 'includes/header.html' %}
 
     {% if messages %}
     <div class="message-container">
@@ -66,6 +65,8 @@
 
 
     {% block page_header %}
+    {% include 'includes/header.html' %}
+
     {% endblock page_header %}
 
     {% block content %}

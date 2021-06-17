@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     # My Stuff
+    'context_processors',
     'home',
     'products',
     'bag',
@@ -51,6 +52,7 @@ SITE_ID = 1
 JET_SIDE_MENU_COMPACT = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -112,6 +114,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'context_processors.context_processors.header_customisation_processor',
                 'bag.contexts.bag_contents',
             ],
             'builtins': [
