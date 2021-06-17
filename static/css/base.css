@@ -46,23 +46,23 @@ body {
 }
 
 .admin-color__black {
-    color: black;
+    color: black !important;
 }
 
 .admin-color__white {
-    color: white;
+    color: white !important;
 }
 
 .admin-color__red {
-    color: red;
+    color: red !important;
 }
 
 .admin-color__blue {
-    color: blue;
+    color: blue !important;
 }
 
 .admin-color__green {
-    color: green;
+    color: green !important;
 }
 
 .admin-bg-color__red {
