@@ -2,17 +2,26 @@ from django.db import models
 
 
 class HomePageCustomisation(models.Model):
-    image_title_for_backend = models.CharField(blank=False, null=False, max_length=35, default="image title...")
+    TEXT_COLOR_CLASS_CHOICES = (
+        ('admin-color__red', 'Red'),
+        ('admin-color__blue', 'Blue'),
+        ('admin-color__green', 'Green'),
+        ('admin-color__black', 'Black'),
+        ('admin-color__white', 'White'),
+    )
+    name_these_changes = models.CharField(blank=False, null=False, max_length=35, default="image title...")
     image = models.ImageField(null=True, blank=True)
     main_page_text = models.TextField(blank=False, null=False, max_length=3500)
+    main_page_text_color = models.TextField(choices=TEXT_COLOR_CLASS_CHOICES, default='Pick a color')
     button_text = models.CharField(blank=False, null=False, max_length=15, default='Shop Now')
+    
     
     class Meta:
         verbose_name_plural = 'Home Page Customisation'
         
     
     def __str__(self):
-        return self.image_title_for_backend
+        return self.name_these_changes
     
 
 class HeaderCustomisation(models.Model):

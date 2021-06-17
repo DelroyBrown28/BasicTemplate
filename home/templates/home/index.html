@@ -27,7 +27,7 @@
             <div class="col-7 col-md-6 my-auto">
 
                 {% for x in home_page_customisation  %}
-                <h1 class="display-4 logo-font text-white">{{ x.main_page_text|safe }}</h1>
+                <h1 class="{{ x.main_page_text_color }} display-4 logo-font">{{ x.main_page_text|safe }}</h1>
                 {% endfor %}
 
                 <div class="my-5">

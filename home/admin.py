@@ -10,14 +10,21 @@ from BasicTemplateMain.admin import superadmin
 
 class HomePageCustomisationAdmin(admin.ModelAdmin):
     list_display = (
-        'image_title_for_backend',
+        'name_these_changes',
+        'main_page_text',
     )
     
 class HeaderCustomisationAdmin(admin.ModelAdmin):
    list_display = (
-        'small_banner_text',
+        'name_these_changes',
+        'do_not_display',
     )
-    
+   list_editable = (
+        'do_not_display',
+       
+   )
+  
+       
 class OrderLineItemAdminInline(admin.TabularInline):
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
@@ -102,8 +109,8 @@ class CategoryAdmin(admin.ModelAdmin):
 """
 superadmin.register() to register for superuser admin
 """
-superadmin.register(HomePageCustomisation)
-superadmin.register(HeaderCustomisation)
+superadmin.register(HomePageCustomisation, HomePageCustomisationAdmin)
+superadmin.register(HeaderCustomisation, HeaderCustomisationAdmin)
 superadmin.register(Product, ProductAdmin)
 superadmin.register(Category, CategoryAdmin)
 superadmin.register(Order, OrderAdmin)
