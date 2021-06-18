@@ -48,9 +48,48 @@ body {
     height: 55px;
 }
 
+.my-account-icon,
+.shopping-bag-icon {
+    height: 20px !important;
+}
 
-.main-page-title__admin { 
+
+.main-page-title__admin {
     color: #000;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.add-border__red {
+    border: 1px solid red;
+    border-radius: 0px;
+    padding: 10px;
+}
+
+.add-border__blue {
+    border: 1px solid blue;
+    border-radius: 0px;
+    padding: 10px;
+}
+
+.add-border__green {
+    border: 1px solid green;
+    border-radius: 0px;
+    padding: 10px;
+}
+
+.add-border__black {
+    border: 1px solid black;
+    border-radius: 0px;
+    padding: 10px;
+}
+
+.add-border__white {
+    border: 1px solid white;
+    border-radius: 0px;
+    padding: 10px;
 }
 
 .admin-color__black {
@@ -76,15 +115,19 @@ body {
 .admin-bg-color__red {
     background-color: red !important;
 }
+
 .admin-bg-color__blue {
     background-color: blue !important;
 }
+
 .admin-bg-color__green {
     background-color: green !important;
 }
+
 .admin-bg-color__black {
     background-color: black !important;
 }
+
 .admin-bg-color__white {
     background-color: white !important;
 }

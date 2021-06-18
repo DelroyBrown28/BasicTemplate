@@ -1,5 +1,11 @@
 from django.contrib import admin
+from BasicTemplateMain.admin import superadmin
+
 from .models import Product, Category
+
+# Superuser admin models
+
+
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
@@ -33,7 +39,6 @@ class CategoryAdmin(admin.ModelAdmin):
     )
     
         
-
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)

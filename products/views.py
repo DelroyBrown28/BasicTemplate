@@ -136,3 +136,11 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product Deleted')
     return redirect(reverse('products'))
+
+def products_page_customisation(request):
+    """Customisation for products page"""
+    products_page_customisation = ProductsPageCustomisation.objects.all()
+    context = {
+        'products_page_customisation' : products_page_customisation,
+    }
+    return render(request, 'products/products.html', context)

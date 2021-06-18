@@ -69,7 +69,9 @@
             <div class="row">
                 {% for product in products  %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card h-100 border-0">
+
+                    {% for x in products_page_customisation %}
+                    <div class="card h-100 {{ x.choose_border_color }}">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -113,6 +115,8 @@
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+
                 </div>
 
 

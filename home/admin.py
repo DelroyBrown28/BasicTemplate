@@ -5,6 +5,7 @@ from allauth.socialaccount.models import SocialToken, SocialAccount, SocialApp
 from products.models import Product, Category
 from checkout.models import Order, OrderLineItem
 from .models import HomePageCustomisation, HeaderCustomisation
+from products.models import ProductsPageCustomisation
 from BasicTemplateMain.admin import superadmin
 
 
@@ -30,6 +31,11 @@ class HeaderCustomisationAdmin(admin.ModelAdmin):
        
    )
 
+
+class ProductsPageCustomisationAdmin(admin.ModelAdmin):
+    list_display = (
+        'name_these_changes',
+    )
 
 # Store owners admin models     
 class OrderLineItemAdminInline(admin.TabularInline):
@@ -118,6 +124,7 @@ superadmin.register() to register for superuser admin
 """
 superadmin.register(HomePageCustomisation, HomePageCustomisationAdmin)
 superadmin.register(HeaderCustomisation, HeaderCustomisationAdmin)
+superadmin.register(ProductsPageCustomisation, ProductsPageCustomisationAdmin)
 superadmin.register(Product, ProductAdmin)
 superadmin.register(Category, CategoryAdmin)
 superadmin.register(Order, OrderAdmin)

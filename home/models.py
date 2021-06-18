@@ -56,6 +56,7 @@ class HeaderCustomisation(models.Model):
     choose_background_color_class = models.CharField(choices=BACKGROUND_COLOR_CLASS_CHOICES, blank=False, null=False, max_length=30, default="Blue")
     choose_text_color_class = models.CharField(choices=TEXT_COLOR_CLASS_CHOICES, blank=False, null=False, max_length=30, default="Blue")
     header_logo = models.ImageField(null=True, blank=True, upload_to='media')
+    header_icon_colors = models.CharField(choices=TEXT_COLOR_CLASS_CHOICES, blank=False, null=False, max_length=30, default="Blue")
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                          default=False,
                                          help_text='Check this box to hide this specific banner.')

@@ -94,6 +94,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+
+
 ROOT_URLCONF = 'BasicTemplateMain.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -115,6 +118,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'context_processors.context_processors.header_customisation_processor',
+                'context_processors.context_processors.products_page_customisation_processor',
                 'bag.contexts.bag_contents',
             ],
             'builtins': [
