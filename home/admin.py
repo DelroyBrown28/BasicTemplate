@@ -4,8 +4,8 @@ from django.contrib.sites.models import Site
 from allauth.socialaccount.models import SocialToken, SocialAccount, SocialApp
 from products.models import Product, Category
 from checkout.models import Order, OrderLineItem
-from .models import HomePageCustomisation, HeaderCustomisation
-from products.models import ProductsPageCustomisation
+# from page_customisations.models import HomePageCustomisation, HeaderCustomisation
+# from products.models import ProductsPageCustomisation
 from BasicTemplateMain.admin import superadmin
 
 
@@ -119,16 +119,7 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
-"""
-superadmin.register() to register for superuser admin
-"""
-superadmin.register(HomePageCustomisation, HomePageCustomisationAdmin)
-superadmin.register(HeaderCustomisation, HeaderCustomisationAdmin)
-superadmin.register(ProductsPageCustomisation, ProductsPageCustomisationAdmin)
-superadmin.register(Product, ProductAdmin)
-superadmin.register(Category, CategoryAdmin)
-superadmin.register(Order, OrderAdmin)
-# admin.site.register(HomePageCustomisation, HomePageCustomisationAdmin)
+
 admin.site.unregister(Site)
 admin.site.unregister(SocialToken)
 admin.site.unregister(SocialAccount)

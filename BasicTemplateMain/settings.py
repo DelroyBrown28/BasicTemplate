@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # My Stuff
     'context_processors',
+    'page_customisations',
     'home',
     'products',
     'bag',

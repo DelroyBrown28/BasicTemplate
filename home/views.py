@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
-from .models import HomePageCustomisation, HeaderCustomisation
+from page_customisations.models import HomePageCustomisation
 
 
 def index(request):
@@ -12,10 +12,3 @@ def index(request):
     return render(request, 'home/index.html', context)
 
 
-def header_customisation(request):
-    """Customisation for header contents"""
-    header_customisation = HeaderCustomisation.objects.all()
-    context = {
-        'header_customisation' : header_customisation,
-    }
-    return render(request, 'includes/header.html', context)

@@ -45,7 +45,8 @@
                             <div>
                                 <!-- <img src="{{ x.my_account_icon.url }}" class="my-account-icon"> -->
                                 {% for x in header_customisation  %}
-                                <i class="{% if x.do_not_display %}
+                                <i
+                                    class="{% if x.do_not_display %}
                                 do-not-display {% else %} fas fa-user fa-lg {{ x.header_icon_colors }} {% endif %}"></i>
                                 {% endfor %}
                             </div>
@@ -55,13 +56,15 @@
 
                     <div class="dropdown-menu border-0" aria-labelledby="user-options">
                         {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
                         <a href="/admin" class="dropdown-item">Website Admin</a>
-                        <a href="/superadmin" class="dropdown-item">Super Admin</a>
                         <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                        {% endif %}
                         <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                         <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% if request.user.is_superuser %}
+                        <a href="/superadmin" class="dropdown-item">
+                            <img src="{% static 'images/superadminicon.png' %}" style="height: 16px !important;">
+                            Super Admin</a>
+                        {% endif %}
                         {% else %}
                         <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                         <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
@@ -75,7 +78,8 @@
                             <div>
                                 <!-- <img src="{{ new.shopping_bag_icon_color }}" class="shopping-bag-icon"> -->
                                 {% for x in header_customisation  %}
-                                <i class="{% if x.do_not_display %}
+                                <i
+                                    class="{% if x.do_not_display %}
                                 do-not-display {% else %} fas fa-shopping-bag fa-lg {{ x.header_icon_colors }} {% endif %}"></i>
                                 {% endfor %}
 

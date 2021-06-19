@@ -1,0 +1,92 @@
+/* 
+==================
+ADD BORDER CLASSES
+==================
+*/
+
+.no-border {
+    border: none !important;
+}
+
+.add-border__red {
+    border: 1px solid red;
+    border-radius: 0px;
+    padding: 10px;
+}
+
+.add-border__blue {
+    border: 1px solid blue;
+    border-radius: 0px;
+    padding: 10px;
+}
+
+.add-border__green {
+    border: 1px solid green;
+    border-radius: 0px;
+    padding: 10px;
+}
+
+.add-border__black {
+    border: 1px solid black;
+    border-radius: 0px;
+    padding: 10px;
+}
+
+.add-border__white {
+    border: 1px solid white;
+    border-radius: 0px;
+    padding: 10px;
+}
+
+
+/* 
+==================
+TEXT COLOR CLASSES
+==================
+*/
+
+.admin-color__black {
+    color: black !important;
+}
+
+.admin-color__white {
+    color: white !important;
+}
+
+.admin-color__red {
+    color: red !important;
+}
+
+.admin-color__blue {
+    color: blue !important;
+}
+
+.admin-color__green {
+    color: green !important;
+}
+
+/* 
+========================
+BACKGROUND COLOR CLASSES
+========================
+*/
+
+.admin-bg-color__red {
+    background-color: red !important;
+}
+
+.admin-bg-color__blue {
+    background-color: blue !important;
+}
+
+.admin-bg-color__green {
+    background-color: green !important;
+}
+
+.admin-bg-color__black {
+    background-color: black !important;
+}
+
+.admin-bg-color__white {
+    background-color: white !important;
+}

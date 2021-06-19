@@ -1,3 +1,5 @@
+{% load static %}
+
 <li class="list-inline-item">
     <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
@@ -23,21 +25,25 @@
     </div>
 </li>
 <li class="list-inline-item dropdown">
-    <a class="text-black nav-link d-block d-lg-none dropdown-toggle" href="{% url 'products' %}" id="user-options" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
+    <a class="text-black nav-link d-block d-lg-none dropdown-toggle" href="{% url 'products' %}" id="user-options"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div><i class="fas fa-user fa-lg"></i></div>
             <p class="my-0">My Account</p>
         </div>
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
-        {% if request.user.is_authenticated %}
         {% if request.user.is_superuser %}
-        <a href="/admin" class="dropdown-item">Site Admin</a>
+        <a href="/superadmin" class="dropdown-item">
+            <img src="{% static 'images/superadminicon.png' %}" class="mr-1" style="height: 16px !important;">
+            Super Admin
+        </a>
+        {% if request.user.is_authenticated %}
+        <a href="/admin" class="dropdown-item">Website Admin</a>
         <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-        {% endif %}
         <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
         <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+        {% endif %}
         {% else %}
         <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
         <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
