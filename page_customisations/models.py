@@ -52,7 +52,7 @@ class ProductsPageCustomisation(models.Model):
         ('no-border', 'No Border'),
     )
     products_page_styling = models.CharField(blank=False, null=False, max_length=200, default="Default Product Page Styling")
-    add_border_to_product_cards = models.CharField(choices=BORDER_SIZE_CHOICES,
+    add_card_border = models.TextField(choices=BORDER_SIZE_CHOICES,
                                                    blank=False,
                                                    null=False,
                                                    max_length=200, default="No Border")
