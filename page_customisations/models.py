@@ -6,7 +6,7 @@ from colorfield.fields import ColorField
 class HomePageCustomisation(models.Model):
     home_page_styling = models.CharField(blank=False, null=False, max_length=35, default="Name This Styling...")
     image = models.ImageField(null=True, blank=True)
-    main_page_text = models.TextField(blank=False, null=False, max_length=35)
+    main_page_text = models.TextField(blank=False, null=False)
     main_page_text_color = ColorField(format='hexa')
     button_text = models.CharField(blank=False, null=False, max_length=15, default='Shop Now')
     button_text_color = ColorField(format='hexa')
