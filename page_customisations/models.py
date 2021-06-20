@@ -31,7 +31,7 @@ class HeaderCustomisation(models.Model):
     header_text_colors = ColorField(format='hexa')
     search_icon_color = ColorField(format='hexa')
     search_icon_background_color = ColorField(format='hexa')
-    small_banner_text = models.CharField(blank=False, null=False, max_length=200, default="Welcome")
+    small_banner_text = models.CharField(blank=False, null=False, max_length=20, default="Welcome")
     small_banner_background_color = ColorField(format='hexa')
     small_banner_text_color = ColorField(format='hexa')
     do_not_display = models.BooleanField(verbose_name='Do not display',
@@ -55,7 +55,7 @@ class ProductsPageCustomisation(models.Model):
     add_card_border = models.TextField(choices=BORDER_SIZE_CHOICES,
                                                    blank=False,
                                                    null=False,
-                                                   max_length=35, default="No Border")
+                                                   default="No Border")
     border_color = ColorField(format='hexa')
     product_card_font_color = ColorField(format='hexa')
     

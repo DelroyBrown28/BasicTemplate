@@ -32,23 +32,4 @@ class Product(models.Model):
         return self.name
     
     
-# class ProductsPageCustomisation(models.Model):
-#     BORDER_COLOR_CHOICES = (
-#         ('add-border__red', 'Red'),
-#         ('add-border__blue', 'Blue'),
-#         ('add-border__green', 'Green'),
-#         ('add-border__black', 'Black'),
-#         ('add-border__white', 'White'),
-#         ('no-border', 'No Border'),
-#     )
-#     name_these_changes = models.CharField(blank=False, null=False, max_length=200, default="Default Product Page Styling")
-#     choose_border_color = models.CharField(choices=BORDER_COLOR_CHOICES, blank=False, null=False, max_length=30, default="No Border")
-    
-#     class Meta:
-#         verbose_name_plural = 'Products Page Customisation'
-        
-    
-#     def __str__(self):
-#         return self.name_these_changes
-    
     
