@@ -1,5 +1,5 @@
-from page_customisations.views import HeaderCustomisation, ProductsPageCustomisation
 from page_customisations.models import ProductsPageCustomisation
+from page_customisations.views import HeaderCustomisation, ProductsPageCustomisation
 
 
 def header_customisation_processor(request):
