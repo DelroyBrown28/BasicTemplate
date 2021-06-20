@@ -25,7 +25,7 @@ class HomePageCustomisation(models.Model):
     
 
 class HeaderCustomisation(models.Model):
-    header_styling = models.CharField(blank=False, null=False, max_length=200, default="Default Styling")
+    header_styling = models.CharField(blank=False, null=False, max_length=55, default="Default Styling")
     header_logo = models.ImageField(null=True, blank=True, upload_to='media')
     header_icon_color = ColorField(format='hexa')
     header_text_colors = ColorField(format='hexa')
@@ -51,11 +51,11 @@ class ProductsPageCustomisation(models.Model):
         ('add-border', 'Add Border'),
         ('no-border', 'No Border'),
     )
-    products_page_styling = models.CharField(blank=False, null=False, max_length=200, default="Default Product Page Styling")
+    products_page_styling = models.CharField(blank=False, null=False, max_length=55, default="Default Product Page Styling")
     add_card_border = models.TextField(choices=BORDER_SIZE_CHOICES,
                                                    blank=False,
                                                    null=False,
-                                                   max_length=200, default="No Border")
+                                                   max_length=55, default="No Border")
     border_color = ColorField(format='hexa')
     product_card_font_color = ColorField(format='hexa')
     
