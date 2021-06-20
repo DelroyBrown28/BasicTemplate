@@ -6,11 +6,11 @@ from colorfield.fields import ColorField
 class HomePageCustomisation(models.Model):
     home_page_styling = models.CharField(blank=False, null=False, max_length=35, default="Name This Styling...")
     image = models.ImageField(null=True, blank=True)
-    main_page_text = models.TextField(blank=False, null=False, max_length=3500)
-    main_page_text_color = ColorField(default='#FFFFFF')
+    main_page_text = models.TextField(blank=False, null=False, max_length=350)
+    main_page_text_color = ColorField(format='hexa')
     button_text = models.CharField(blank=False, null=False, max_length=15, default='Shop Now')
-    button_text_color = ColorField(default='#FFFFFF')
-    button_background_color = ColorField(default='#FFFFFF')
+    button_text_color = ColorField(format='hexa')
+    button_background_color = ColorField(format='hexa')
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                         default=False,
                                         help_text='Check this box to hide this specific styling.')
@@ -27,13 +27,13 @@ class HomePageCustomisation(models.Model):
 class HeaderCustomisation(models.Model):
     header_styling = models.CharField(blank=False, null=False, max_length=200, default="Default Styling")
     header_logo = models.ImageField(null=True, blank=True, upload_to='media')
-    header_icon_color = ColorField(default='#FFFFFF')
-    header_text_colors = ColorField(default='#000000')
-    search_icon_color = ColorField(default='#000000')
-    search_icon_background_color = ColorField(default='#000')
+    header_icon_color = ColorField(format='hexa')
+    header_text_colors = ColorField(format='hexa')
+    search_icon_color = ColorField(format='hexa')
+    search_icon_background_color = ColorField(format='hexa')
     small_banner_text = models.CharField(blank=False, null=False, max_length=200, default="Welcome")
-    small_banner_background_color = ColorField(default='#000000')
-    small_banner_text_color = ColorField(default='#FFFFFF')
+    small_banner_background_color = ColorField(format='hexa')
+    small_banner_text_color = ColorField(format='hexa')
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                          default=False,
                                          help_text='Check this box to hide this specific banner.')
@@ -56,8 +56,8 @@ class ProductsPageCustomisation(models.Model):
                                                    blank=False,
                                                    null=False,
                                                    max_length=200, default="No Border")
-    border_color = ColorField(default='#000000')
-    product_card_font_color = ColorField(default='#000000')
+    border_color = ColorField(format='hexa')
+    product_card_font_color = ColorField(format='hexa')
     
     
     class Meta:
