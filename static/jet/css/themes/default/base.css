@@ -3577,13 +3577,19 @@ p.mini {
 .help,
 p.help,
 form p.help {
-    color: red;
+    color: 000;
     font-size: 15px;
     font-size: 0.9rem
 }
 
 .help-tooltip {
     cursor: help
+}
+
+.business-tag {
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 p img,

@@ -4,9 +4,19 @@
 
 {% block branding %}
 <!-- <h1 id="site-name"><a href="{% url 'admin:index' %}">NueUi</a></h1> -->
-<img class="wagtail-logo wagtail-logo__body" style="height: 77px;" src="{% static 'images/nueuiwhite.png' %}" alt=""/>
+<img class="" style="height: 77px;" src="{% static 'images/nueuiwhite.png' %}" alt="" />
 <br>
 <br>
-<small class="business-tag">Business</small>
+{% if request.user.is_superuser %}
+<hr>
+<small class="business-tag">SUPERUSER</small>
+<hr>
+<!-- <img src="{% static 'images/superadminicon.png' %}" style="height: 16px !important;"> -->
+{% else %}
+<hr>
+<small class="business-tag">{{request.user}}</small>
+<hr>
+{% endif %}
+
 
 {% endblock %}
