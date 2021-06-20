@@ -1,31 +1,19 @@
 from django.db import models
+from colorfield.fields import ColorField
+
 
 
 class HomePageCustomisation(models.Model):
-    TEXT_COLOR_CLASS_CHOICES = (
-        ('admin-color__red', 'Red'),
-        ('admin-color__blue', 'Blue'),
-        ('admin-color__green', 'Green'),
-        ('admin-color__black', 'Black'),
-        ('admin-color__white', 'White'),
-    )
-    BACKGROUND_COLOR_CLASS_CHOICES = (
-        ('admin-bg-color__red', 'Red'),
-        ('admin-bg-color__blue', 'Blue'),
-        ('admin-bg-color__green', 'Green'),
-        ('admin-bg-color__black', 'Black'),
-        ('admin-bg-color__white', 'White'),
-    )
     home_page_styling = models.CharField(blank=False, null=False, max_length=35, default="Name This Styling...")
     image = models.ImageField(null=True, blank=True)
     main_page_text = models.TextField(blank=False, null=False, max_length=3500)
-    main_page_text_color = models.TextField(choices=TEXT_COLOR_CLASS_CHOICES, default='Pick a color')
+    main_page_text_color = ColorField(default='#FFFFFF')
     button_text = models.CharField(blank=False, null=False, max_length=15, default='Shop Now')
-    button_text_color = models.TextField(choices=TEXT_COLOR_CLASS_CHOICES, default='Pick a color')
-    button_background_color = models.CharField(choices=BACKGROUND_COLOR_CLASS_CHOICES, blank=False, null=False, max_length=30, default="Blue")
+    button_text_color = ColorField(default='#FFFFFF')
+    button_background_color = ColorField(default='#FFFFFF')
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                         default=False,
-                                        help_text='Check this box to hide this specific banner.')
+                                        help_text='Check this box to hide this specific styling.')
 
     
     class Meta:
@@ -37,26 +25,15 @@ class HomePageCustomisation(models.Model):
     
 
 class HeaderCustomisation(models.Model):
-    BACKGROUND_COLOR_CLASS_CHOICES = (
-        ('admin-bg-color__red', 'Red'),
-        ('admin-bg-color__blue', 'Blue'),
-        ('admin-bg-color__green', 'Green'),
-        ('admin-bg-color__black', 'Black'),
-        ('admin-bg-color__white', 'White'),
-    )
-    TEXT_COLOR_CLASS_CHOICES = (
-        ('admin-color__red', 'Red'),
-        ('admin-color__blue', 'Blue'),
-        ('admin-color__green', 'Green'),
-        ('admin-color__black', 'Black'),
-        ('admin-color__white', 'White'),
-    )
     header_styling = models.CharField(blank=False, null=False, max_length=200, default="Default Styling")
-    small_banner_text = models.CharField(blank=False, null=False, max_length=200, default="Welcome")
-    choose_background_color_class = models.CharField(choices=BACKGROUND_COLOR_CLASS_CHOICES, blank=False, null=False, max_length=30, default="Blue")
-    choose_text_color_class = models.CharField(choices=TEXT_COLOR_CLASS_CHOICES, blank=False, null=False, max_length=30, default="Blue")
     header_logo = models.ImageField(null=True, blank=True, upload_to='media')
-    header_icon_colors = models.CharField(choices=TEXT_COLOR_CLASS_CHOICES, blank=False, null=False, max_length=30, default="Blue")
+    header_icon_color = ColorField(default='#FFFFFF')
+    header_text_colors = ColorField(default='#000000')
+    search_icon_color = ColorField(default='#000000')
+    search_icon_background_color = ColorField(default='#000')
+    small_banner_text = models.CharField(blank=False, null=False, max_length=200, default="Welcome")
+    small_banner_background_color = ColorField(default='#000000')
+    small_banner_text_color = ColorField(default='#FFFFFF')
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                          default=False,
                                          help_text='Check this box to hide this specific banner.')
@@ -70,24 +47,17 @@ class HeaderCustomisation(models.Model):
  
     
 class ProductsPageCustomisation(models.Model):
-    BORDER_COLOR_CHOICES = (
-        ('add-border__red', 'Red'),
-        ('add-border__blue', 'Blue'),
-        ('add-border__green', 'Green'),
-        ('add-border__black', 'Black'),
-        ('add-border__white', 'White'),
+    BORDER_SIZE_CHOICES = (
+        ('add-border', 'Add Border'),
         ('no-border', 'No Border'),
     )
-    TEXT_COLOR_CLASS_CHOICES = (
-        ('admin-color__red', 'Red'),
-        ('admin-color__blue', 'Blue'),
-        ('admin-color__green', 'Green'),
-        ('admin-color__black', 'Black'),
-        ('admin-color__white', 'White'),
-    )
     products_page_styling = models.CharField(blank=False, null=False, max_length=200, default="Default Product Page Styling")
-    choose_border_color = models.CharField(choices=BORDER_COLOR_CHOICES, blank=False, null=False, max_length=30, default="No Border")
-    product_card_font_color = models.CharField(choices=TEXT_COLOR_CLASS_CHOICES, blank=False, null=False, max_length=30, default="No Border")
+    add_border_to_product_cards = models.CharField(choices=BORDER_SIZE_CHOICES,
+                                                   blank=False,
+                                                   null=False,
+                                                   max_length=200, default="No Border")
+    border_color = ColorField(default='#000000')
+    product_card_font_color = ColorField(default='#000000')
     
     
     class Meta:

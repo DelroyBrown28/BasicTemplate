@@ -30,18 +30,22 @@
 
                 {% for x in home_page_customisation  %}
                 <h1 class="{% if x.do_not_display %}
-                do-not-display {% else %} {{ x.main_page_text_color }} display-4 logo-font {% endif %}">
+                do-not-display {% else %} display-4 logo-font {% endif %}"
+                    style="color: {{ x.main_page_text_color }};">
                     {{ x.main_page_text|safe }}</h1>
                 {% endfor %}
 
                 <div class="my-5">
                     <h4>
                         {% for x in home_page_customisation  %}
-                        <a href="{% url 'products' %}"
-                            class="{% if x.do_not_display %}
-                        do-not-display {% else %} shop-now-button btn btn-lg rounded-0 text-uppercase py-3 {{ x.button_background_color }} {% endif %}">
-                            <p style="margin: 0 !important;" class="{% if x.do_not_display %}
-                            do-not-display {% else %} {{ x.button_text_color }} {% endif %}">{{ x.button_text }}</p>
+                        <a href="{% url 'products' %}" class="{% if x.do_not_display %}
+                        do-not-display {% else %} shop-now-button btn btn-lg rounded-0 text-uppercase py-3 {% endif %}"
+                            style="background-color: {{ x.button_background_color }};">
+
+                            <p class="{% if x.do_not_display %}
+                            do-not-display {% endif %}" style="color: {{ x.button_text_color }}; margin: 0 !important">
+                                {{ x.button_text }}
+                            </p>
                         </a>
                         {% endfor %}
                     </h4>

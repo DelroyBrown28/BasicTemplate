@@ -71,7 +71,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
 
                     {% for x in products_page_customisation %}
-                    <div class="card h-100 {{ x.choose_border_color }}">
+                    <div class="card h-100 {{ x.add_border_to_product_cards }}" style="border: 1px solid {{ x.border_color }};">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -83,7 +83,7 @@
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">
-                            <p class="{{ x.product_card_font_color }} mb-0">{{ product.name }}</p>
+                            <p class="mb-0" style="color: {{ x.product_card_font_color }};">{{ product.name }}</p>
                         </div>
 
                         <div class="card-footer bg-white pt-0 border-0 text-left">
