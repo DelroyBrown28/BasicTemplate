@@ -28,7 +28,7 @@ class HeaderCustomisation(models.Model):
     header_styling = models.CharField(blank=False, null=False, max_length=55, default="Default Styling")
     header_logo = models.ImageField(null=True, blank=True, upload_to='media')
     header_icon_color = ColorField(format='hexa')
-    header_text_colors = ColorField(format='hexa')
+    header_text_color = ColorField(format='hexa')
     search_icon_color = ColorField(format='hexa')
     search_icon_background_color = ColorField(format='hexa')
     small_banner_text = models.CharField(blank=False, null=False, max_length=20, default="Welcome")
