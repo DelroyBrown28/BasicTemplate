@@ -3,9 +3,6 @@ from BasicTemplateMain.admin import superadmin
 
 from .models import Product, Category
 
-# Superuser admin models
-
-
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (

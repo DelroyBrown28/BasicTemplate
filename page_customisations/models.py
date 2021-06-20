@@ -58,6 +58,7 @@ class ProductsPageCustomisation(models.Model):
                                                    default="No Border")
     border_color = ColorField(format='hexa')
     product_card_font_color = ColorField(format='hexa')
+    product_card_icon_color = ColorField(format='hexa')
     
     
     class Meta:
