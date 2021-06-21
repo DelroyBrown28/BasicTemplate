@@ -4,16 +4,28 @@ from colorfield.fields import ColorField
 
 
 class HomePageCustomisation(models.Model):
+    TEXT_ALIGNMENT_CHOICES = {
+        ('text-align__right', 'Right'),
+        ('text-align__left', 'Left'),
+        ('text-align__center', 'Center'),
+    }
+    BUTTON_ALIGNMENT_CHOICES = {
+        ('text-align__right', 'Right'),
+        ('text-align__left', 'Left'),
+        ('text-align__center', 'Center'),
+    }
     home_page_styling = models.CharField(blank=False, null=False, max_length=35, default="Name This Styling...")
     image = models.ImageField(null=True, blank=True)
     main_page_text = models.TextField(blank=False, null=False)
+    main_page_text_alignment = models.TextField(choices=TEXT_ALIGNMENT_CHOICES,blank=False, null=False, default='text-align__left')
     main_page_text_color = ColorField(format='hexa')
     button_text = models.CharField(blank=False, null=False, max_length=15, default='Shop Now')
     button_text_color = ColorField(format='hexa')
     button_background_color = ColorField(format='hexa')
+    main_page_button_alignment = models.TextField(choices=BUTTON_ALIGNMENT_CHOICES,blank=False, null=False, default='text-align__left')
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                         default=False,
-                                        help_text='Check this box to hide this specific styling.')
+                                        help_text='CHECK THIS BOX TO HIDE THIS SPECIFIC STYLING.')
 
     
     class Meta:
@@ -27,6 +39,7 @@ class HomePageCustomisation(models.Model):
 class HeaderCustomisation(models.Model):
     header_styling = models.CharField(blank=False, null=False, max_length=55, default="Default Styling")
     header_logo = models.ImageField(null=True, blank=True, upload_to='media')
+    header_background_color = ColorField(format='hexa')
     header_icon_color = ColorField(format='hexa')
     header_text_color = ColorField(format='hexa')
     search_icon_color = ColorField(format='hexa')
@@ -36,7 +49,7 @@ class HeaderCustomisation(models.Model):
     small_banner_text_color = ColorField(format='hexa')
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                          default=False,
-                                         help_text='Check this box to hide this specific banner.')
+                                         help_text='CHECK THIS BOX TO HIDE THIS SPECIFIC STYLING.')
     
     class Meta:
         verbose_name_plural = 'Header'

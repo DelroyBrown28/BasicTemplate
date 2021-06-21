@@ -26,16 +26,18 @@
 
     <div class="container h-100">
         <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
+            <div class="col-11 col-md-12 my-auto">
 
                 {% for x in home_page_customisation  %}
                 <h1 class="{% if x.do_not_display %}
-                do-not-display {% else %} display-4 logo-font {% endif %}"
+                do-not-display {% else %} display-4 logo-font main-page-text {{ x.main_page_text_alignment }} {% endif %}"
                     style="color: {{ x.main_page_text_color }};">
                     {{ x.main_page_text|safe }}</h1>
                 {% endfor %}
 
-                <div class="my-5">
+                {% for x in home_page_customisation  %}
+                <div class="{% if x.do_not_display %}
+                do-not-display {% else %} my-5 {{ x.main_page_button_alignment }} {% endif %}">
                     <h4>
                         {% for x in home_page_customisation  %}
                         <a href="{% url 'products' %}" class="{% if x.do_not_display %}
@@ -50,6 +52,7 @@
                         {% endfor %}
                     </h4>
                 </div>
+                {% endfor %}
 
             </div>
         </div>

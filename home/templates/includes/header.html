@@ -1,7 +1,11 @@
 {% load i18n static %}
 
 <header class="container-fluid fixed-top">
-    <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+    {% for x in header_customisation %}
+
+    <div id="topnav" class="{% if x.do_not_display %}
+    do-not-display {% else %} row pt-lg-2 d-none d-lg-flex {% endif %}"
+        style="background-color: {{ x.header_background_color }} !important;">
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
             <a href="{% url 'home' %}" class="nav-link main-logo-link">
                 <!-- <h2 class="logo-font text-black my-0"><strong>Nue</strong> Store</h2> -->
@@ -40,12 +44,12 @@
 
             <ul class="list-inline list-unstyled text-center text-lg-right my-0" aria-labelledby="dropdownMenuLink">
                 <li class="list-inline-item dropdown">
+                    {% for x in header_customisation  %}
                     <a class="text-black nav-link dropdown-toggle" href="#" id="user-options" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <div class="text-center">
                             <div>
                                 <!-- <img src="{{ x.my_account_icon.url }}" class="my-account-icon"> -->
-                                {% for x in header_customisation  %}
                                 <i class="{% if x.do_not_display %}
                                 do-not-display {% else %} fas fa-user fa-lg {% endif %}"
                                     style="color: {{ x.header_icon_color }};"></i>
@@ -88,7 +92,7 @@
                             </div>
                             <p class="{% if x.do_not_display %}
                                 do-not-display {% else %} my-0 text-black {% endif %}"
-                                style="color: {{ x.header_text_color}} ;">
+                                style="color: {{ x.header_text_color}} !important;">
                                 {% if grand_total %}
                                 £{{ grand_total|floatformat:2 }}
                                 {% else %}
@@ -96,6 +100,7 @@
                                 {% endif %}
                             </p>
                             {% endfor %}
+
                         </div>
                     </a>
                 </li>
@@ -103,18 +108,28 @@
 
         </div>
     </div>
+    {% endfor %}
 
-
-    <div class="row bg-light">
+    {% for x in header_customisation  %}
+    <div class="{% if x.do_not_display %}
+    do-not-display {% else %} row bg-light {% endif %}"
+        style="background-color: {{ x.header_background_color }} !important;">
         <nav class="navbar navbar-expand-lg navbar-dark w-100">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
                 aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars" style="color: #000;"></i>
+
+                {% for x in header_customisation %}
+                <i class="{% if x.do_not_display %}
+                do-not-display {% else %} fas fa-bars {% endif %}" style="color: {{ x.header_icon_color }}!important;">
+                </i>
+                {% endfor %}
             </button>
             {% include 'includes/mobile_top_header.html' %}
             {% include 'includes/main_nav.html' %}
         </nav>
     </div>
+    {% endfor %}
+
     {% for x in header_customisation  %}
     <div class="{% if x.do_not_display %}
      do-not-display {% else %} row text-center {% endif %}"

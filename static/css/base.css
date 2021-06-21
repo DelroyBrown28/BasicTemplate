@@ -56,26 +56,6 @@ body {
 }
 
 
-.main-page-title__admin {
-    color: #000;
-}
-
-
-
-
-.text-align__left {
-    text-align: left;
-}
-
-.text-align__right {
-    text-align: right;
-}
-
-.text-align__center {
-    text-align: center;
-}
-
-
 .icon {
     align-items: center;
     display: inline-flex;
@@ -255,6 +235,10 @@ a.category-badge>span.badge:hover {
 
 .navbar-expand-lg .navbar-nav .nav-link {
     margin-right: 3.3rem !important;
+}
+
+.navbar-nav a {
+    font-weight: 500 !important;
 }
 
 /* Product Form */
