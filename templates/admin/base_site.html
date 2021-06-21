@@ -8,14 +8,18 @@
 <br>
 <br>
 {% if request.user.is_superuser %}
+{% if request.get_full_path == '/superadmin/' %}
 <hr>
-<small class="business-tag">SUPERUSER</small>
+<small class="business-tag">{{request.user}}</small><br>
+<a href="/admin" target="_blank">Admin</a>
 <hr>
 <!-- <img src="{% static 'images/superadminicon.png' %}" style="height: 16px !important;"> -->
 {% else %}
 <hr>
-<small class="business-tag">{{request.user}}</small>
+<small class="business-tag">{{request.user}}</small><br>
+<a href="/superadmin" target="_blank">Superuser Admin</a>
 <hr>
+{% endif %}
 {% endif %}
 
 

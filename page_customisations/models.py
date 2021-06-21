@@ -31,7 +31,7 @@ class HeaderCustomisation(models.Model):
     header_text_color = ColorField(format='hexa')
     search_icon_color = ColorField(format='hexa')
     search_icon_background_color = ColorField(format='hexa')
-    small_banner_text = models.CharField(blank=False, null=False, max_length=20, default="Welcome")
+    small_banner_text = models.CharField(blank=False, null=False, max_length=100, default="Welcome")
     small_banner_background_color = ColorField(format='hexa')
     small_banner_text_color = ColorField(format='hexa')
     do_not_display = models.BooleanField(verbose_name='Do not display',
