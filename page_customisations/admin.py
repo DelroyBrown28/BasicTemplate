@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
 from page_customisations.models import (HomePageCustomisation,
                                         HeaderCustomisation,
                                         ProductsPageCustomisation)
@@ -45,3 +46,4 @@ superadmin.register() to register for superuser admin
 superadmin.register(HomePageCustomisation, HomePageCustomisationAdmin)
 superadmin.register(HeaderCustomisation, HeaderCustomisationAdmin)
 superadmin.register(ProductsPageCustomisation, ProductsPageCustomisationAdmin)
+superadmin.register(User)
