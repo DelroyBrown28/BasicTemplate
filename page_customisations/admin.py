@@ -31,6 +31,11 @@ class HeaderCustomisationAdmin(admin.ModelAdmin):
 class ProductsPageCustomisationAdmin(admin.ModelAdmin):
     list_display = (
         'products_page_styling',
+        'do_not_display',
+    )
+    list_editable = (
+            'do_not_display',
+        
     )
     
 """

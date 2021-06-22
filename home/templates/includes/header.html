@@ -25,8 +25,8 @@
                     <div class="input-group-append">
                         {% for x in header_customisation  %}
                         <button class="{% if x.do_not_display %}
-                        do-not-display {% else %} form-control btn border border-black rounded-0 {% endif %}"
-                            type="submit" style="background-color: {{ x.search_icon_background_color }};">
+                        do-not-display {% else %} form-control btn rounded-0 {% endif %}" type="submit" style="background-color: {{ x.search_icon_background_color }};
+                                border: 1px solid {{ x.search_icon_color }};">
                             <span class="icon">
                                 <i class="{% if x.do_not_display %}
                                 do-not-display {% else %} fas fa-search {% endif %}"
@@ -44,9 +44,9 @@
 
             <ul class="list-inline list-unstyled text-center text-lg-right my-0" aria-labelledby="dropdownMenuLink">
                 <li class="list-inline-item dropdown">
-                    {% for x in header_customisation  %}
                     <a class="text-black nav-link dropdown-toggle" href="#" id="user-options" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
+                        {% for x in header_customisation  %}
                         <div class="text-center">
                             <div>
                                 <!-- <img src="{{ x.my_account_icon.url }}" class="my-account-icon"> -->
