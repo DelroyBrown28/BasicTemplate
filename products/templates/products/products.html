@@ -27,11 +27,18 @@ do-not-display {% else %} products-page-color-wrap {% endif %}"
                 do-not-display {% else %} logo-font mt-5 mb-5 {% endif %}"
                     style="color: {{ x.products_page_text_color }} !important;">Products</h2>
                 {% for c in current_categories  %}
-                <a class="category-badge text-decoration-none mr-2" href="{% url 'products' %}?category={{c.name}}">
-                    <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">
+                <a class="category-badge text-decoration-none mr-2"
+                    href=" {% url 'products' %}?category={{c.name}}">
+                    {% for x in products_page_customisation %}
+                    <span
+                        class="{% if x.do_not_display %}
+                    do-not-display {% else %} p-2 mt-2 badge rounded-0 {% endif %}"
+                        style="border: 1px solid {{ x.category_tag_border_color }}; color: {{ x.category_tag_text_color }}">
                         {{c.friendly_name}}
                     </span>
+                    {% endfor %}
                 </a>
+
                 {% endfor %}
                 <hr class="w-50 mb-1">
             </div>
@@ -111,7 +118,8 @@ do-not-display {% else %} products-page-color-wrap {% endif %}"
                             {% for x in products_page_customisation %}
                             <div class="card-body pb-0">
                                 <p class="{% if x.do_not_display %}
-                                do-not-display {% else %} mb-0 {% endif %}" style="color: {{ x.product_card_font_color }};">{{ product.name }}</p>
+                                do-not-display {% else %} mb-0 {% endif %}"
+                                    style="color: {{ x.product_card_font_color }};">{{ product.name }}</p>
                             </div>
                             {% endfor %}
 

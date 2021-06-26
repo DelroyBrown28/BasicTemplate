@@ -67,6 +67,8 @@ class ProductsPageCustomisation(models.Model):
     products_page_styling = models.CharField(blank=False, null=False, max_length=55, default="Default Product Page Styling")
     product_page_background_color = ColorField(format='hexa')
     products_page_text_color = ColorField(format='hexa')
+    category_tag_border_color = ColorField(format='hexa')
+    category_tag_text_color = ColorField(format='hexa')
     product_card_background_color = ColorField(format='hexa')
     add_card_border = models.TextField(choices=BORDER_SIZE_CHOICES,
                                                    blank=False,
@@ -75,9 +77,11 @@ class ProductsPageCustomisation(models.Model):
     border_color = ColorField(format='hexa')
     product_card_font_color = ColorField(format='hexa')
     product_card_icon_color = ColorField(format='hexa')
+    product_quantity_buttons = ColorField(format='hexa', help_text="**Product Display Page")
+    
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                     default=False,
-                                    help_text='CHECK THIS BOX TO HIDE THIS SPECIFIC STYLING.')
+                                    help_text='**Check this box to hide the specific styling.')
 
     
     

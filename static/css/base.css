@@ -130,9 +130,8 @@ body {
 }
 
 
-a.category-badge>span.badge:hover {
-    background: #fff;
-    color: #000;
+category-badge span {
+    font-weight: 100 !important;
 }
 
 .btt-button {
