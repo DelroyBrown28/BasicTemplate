@@ -2,7 +2,6 @@ from django.db import models
 from colorfield.fields import ColorField
 
 
-
 class HomePageCustomisation(models.Model):
     TEXT_ALIGNMENT_CHOICES = {
         ('text-align__right', 'Right'),
@@ -75,13 +74,16 @@ class ProductsPageCustomisation(models.Model):
                                                    null=False,
                                                    default="No Border")
     border_color = ColorField(format='hexa')
-    product_card_font_color = ColorField(format='hexa')
+    product_card_font_color = ColorField(format='hex')
     product_card_icon_color = ColorField(format='hexa')
     product_quantity_buttons = ColorField(format='hexa', help_text="**Product Display Page")
-    
+    keep_shopping_button_color = ColorField(format='hexa', help_text="**Product Display Page")
+    keep_shopping_button_text_color = ColorField(format='hexa', help_text="**Product Display Page")
+    add_to_bag_button_color = ColorField(format='hexa', help_text="**Product Display Page")
+    add_to_bag_button_text_color = ColorField(format='hexa', help_text="**Product Display Page")
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                     default=False,
-                                    help_text='**Check this box to hide the specific styling.')
+                                    help_text='**Check this box to hide this specific styling.')
 
     
     
@@ -91,3 +93,4 @@ class ProductsPageCustomisation(models.Model):
     
     def __str__(self):
         return self.products_page_styling
+    

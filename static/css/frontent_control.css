@@ -7,7 +7,10 @@ ADD BORDER CLASSES
 
 .add-border {
     border: 1px solid;
+    border-radius: 0px !important;
     padding: 10px;
+
+    
 }
 
 .no-border {

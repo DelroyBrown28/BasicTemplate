@@ -27,11 +27,9 @@ do-not-display {% else %} products-page-color-wrap {% endif %}"
                 do-not-display {% else %} logo-font mt-5 mb-5 {% endif %}"
                     style="color: {{ x.products_page_text_color }} !important;">Products</h2>
                 {% for c in current_categories  %}
-                <a class="category-badge text-decoration-none mr-2"
-                    href=" {% url 'products' %}?category={{c.name}}">
+                <a class="category-badge text-decoration-none mr-2" href=" {% url 'products' %}?category={{c.name}}">
                     {% for x in products_page_customisation %}
-                    <span
-                        class="{% if x.do_not_display %}
+                    <span class="{% if x.do_not_display %}
                     do-not-display {% else %} p-2 mt-2 badge rounded-0 {% endif %}"
                         style="border: 1px solid {{ x.category_tag_border_color }}; color: {{ x.category_tag_text_color }}">
                         {{c.friendly_name}}
@@ -129,19 +127,22 @@ do-not-display {% else %} products-page-color-wrap {% endif %}"
                                 style="background-color: {{ x.product_card_background_color }} !important;">
                                 <div class="row">
                                     <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">£<span
-                                                style="font-weight: 400;">{{ product.price }}</span></p>
+                                        <p class="lead mb-0 text-left font-weight-bold"
+                                            style="font-weight: 300 !important; color: {{ x.product_card_font_color }}">
+                                            £<span>{{ product.price }}
+                                            </span>
+                                        </p>
                                         {% if product.category %}
                                         <p class="small mt-1 mb-0">
-                                            <a class="text-muted"
+                                            <a class="text-muted" style="color: {{ x.product_card_font_color }}B3 !important;"
                                                 href="{% url 'products' %}?category={{ product.category.name }}">
                                                 <i class="fas fa-tag mr-1"
-                                                    style="color: {{ x.product_card_icon_color }};"></i>{{ product.category.friendly_name }}
+                                                    style="color: {{ x.product_card_icon_color }} !important;"></i>{{ product.category.friendly_name }}
                                             </a>
                                         </p>
                                         {% endif %}
                                         {% if product.rating %}
-                                        <small class="text-muted"><i class="fas fa-star mr-1"
+                                        <small class="text-muted" style="color: {{ x.product_card_font_color }}B3 !important;"><i class="fas fa-star mr-1"
                                                 style="color: {{ x.product_card_icon_color }};"></i>{{ product.rating }}
                                             /
                                             5</small>

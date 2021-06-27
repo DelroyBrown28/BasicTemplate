@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from .models import HomePageCustomisation, HeaderCustomisation, ProductsPageCustomisation
+from .models import (HomePageCustomisation,
+                     HeaderCustomisation,
+                     ProductsPageCustomisation)
 
 
 def header_customisation(request):
@@ -18,3 +20,5 @@ def products_page_customisation(request):
         'products_page_customisation' : products_page_customisation,
     }
     return render(request, 'products/products.html', context)
+
+

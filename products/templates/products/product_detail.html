@@ -52,15 +52,22 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ x.pro
                 {% if product.category %}
                 {% for x in products_page_customisation %}
                 <p class="{% if x.do_not_display %}
-            do-not-display {% else %} small mt-1 mb-0 {% endif %}" style="color: {{ x.products_page_text_color }};">
-                    <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+            do-not-display {% else %} small mt-1 mb-0 {% endif %}">
+                    <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}"
+                        style="color: {{ x.products_page_text_color }} !important;">
                         <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
                     </a>
                 </p>
                 {% endfor %}
                 {% endif %}
                 {% if product.rating %}
-                <small class="test-muted"><i class="fa fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                {% for x in products_page_customisation %}
+                <small class="{% if x.do_not_display %}
+                do-not-display {% else %} test-muted {% endif %}"
+                    style="color: {{ x.products_page_text_color }} !important;">
+                    <i class="fa fa-star mr-1"></i>{{ product.rating }} / 5
+                </small>
+                {% endfor %}
                 {% else %}
                 <small class="test-muted">NO RATING</small>
                 {% endif %}
@@ -137,15 +144,24 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ x.pro
                                 </div>
                             </div>
                         </div>
-
                         <div class="col{% if s %}-12 mt-2 {% endif %}">
-                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+                            {% for x in products_page_customisation %}
+                            <a href="{% url 'products' %}" class="{% if x.do_not_display %}
+                            do-not-display {% else %} btn btn-outline-black rounded-0 mt-5 {% endif %}"
+                                style="background-color: {{ x.keep_shopping_button_color }};">
                                 <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
+                                    <i class="{% if x.do_not_display %}
+                                    do-not-display {% else %} fas fa-chevron-left {% endif %}"
+                                        style="color: {{ x.keep_shopping_button_text_color }};"></i>
                                 </span>
-                                <span class="text-uppercase">Keep Shopping</span>
+                                <span class="{% if x.do_not_display %}
+                                do-not-display {% else %} text-uppercase {% endif %}"
+                                    style="color: {{ x.keep_shopping_button_text_color }};">Keep Shopping</span>
                             </a>
-                            <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                            <input type="submit" class="{% if x.do_not_display %}
+                            do-not-display {% else %} btn btn-black rounded-0 text-uppercase mt-5 {% endif %}"
+                                style="background-color: {{ x.add_to_bag_button_color }};" value="Add to Bag">
+                            {% endfor %}
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}

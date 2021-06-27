@@ -12,3 +12,4 @@ def products_page_customisation_processor(request):
     return {
        'products_page_customisation': ProductsPageCustomisation.objects.all(),
     }
+    
