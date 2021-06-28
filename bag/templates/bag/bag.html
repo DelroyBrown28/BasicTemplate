@@ -11,12 +11,21 @@
 {% endblock %}
 
 {% block content %}
-<div class="overlay"></div>
-<div class="container mb-2">
+{% for x in products_page_customisation %}
+<div class="{% if x.do_not_display %}
+do-not-display {% else %} overlay {% endif %}" style="background-color: {{ x.product_page_background_color }};">
+</div>
+{% endfor %}
+<div class="container mb-2 mt-5">
     <div class="row">
         <div class="col">
             <hr>
-            <h2 class="logo-font mb-4">Shopping Bag</h2>
+            {% for x in products_page_customisation %}
+            <h2 class="{% if x.do_not_display %}
+            do-not-display {% else %} logo-font mb-4 {% endif %}" style="color: {{ x.products_page_text_color }};">
+                Shopping Bag
+            </h2>
+            {% endfor %}
             <hr>
         </div>
     </div>
@@ -26,7 +35,10 @@
             {% if bag_items %}
             <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
-                    <thead class="text-black">
+                    {% for x in products_page_customisation %}
+                    <thead class="{% if x.do_not_display %}
+                    do-not-display {% else %} text-black {% endif %}"
+                        style="color: {{ x.products_page_text_color }} !important;">
                         <tr>
                             <th scope="col">Product Info</th>
                             <th scope="col"></th>
@@ -35,9 +47,12 @@
                             <th scope="col">Subtotal</th>
                         </tr>
                     </thead>
-
+                    {% endfor %}
                     {% for item in bag_items %}
-                    <tr>
+                    {% for x in products_page_customisation %}
+
+                    <tr class="{% if x.do_not_display %}
+                    do-not-display {% else %} {% endif %}" style="color: {{ x.products_page_text_color }} !important;">
                         <td class="p-3 w-25">
                             {% if item.product.image %}
                             <img class="img-fluid rounded" src="{{ item.product.image.url }}"
@@ -62,27 +77,37 @@
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <div class="input-group">
-
                                         <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm btn-black rounded-0"
+                                            {% for x in products_page_customisation %}
+                                            <button
+                                                class="{% if x.do_not_display %}
+                                            do-not-display {% else %} decrement-qty btn btn-black rounded-0 {% endif %}"
+                                                style="background-color: {{ x.product_quantity_buttons }} !important;"
                                                 data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-minus fa-sm"></i>
                                                 </span>
                                             </button>
+                                            {% endfor %}
                                         </div>
-
                                         <input class="form-control form-control-sm qty_input" type="number"
                                             name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                             data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
 
                                         <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm btn-black rounded-0"
+                                            {% for x in products_page_customisation %}
+
+                                            <button
+                                                class="{% if x.do_not_display %}
+                                            do-not-display {% else %} increment-qty btn btn-black rounded-0 {% endif %}"
+                                                style="background-color: {{ x.product_quantity_buttons }} !important;"
                                                 data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-plus fa-sm"></i>
                                                 </span>
                                             </button>
+                                            {% endfor %}
+
                                         </div>
 
                                         {% if item.product.has_sizes %}
@@ -100,6 +125,7 @@
                         </td>
                     </tr>
                     {% endfor %}
+                    {% endfor %}
                     <tr>
                         <td colspan="5" class="pt-5 text-right">
                             <h6><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
@@ -115,18 +141,32 @@
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">
-                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                            {% for x in products_page_customisation %}
+                            <a href="{% url 'products' %}" class="{% if x.do_not_display %}
+                            do-not-display {% else %} btn btn-outline-black rounded-0 btn-lg {% endif %}"
+                                style="background-color: {{ x.keep_shopping_button_color }};">
                                 <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
+                                    <i class="{% if x.do_not_display %}
+                                    do-not-display {% else %} fas fa-chevron-left {% endif %}"
+                                        style="color: {{ x.keep_shopping_button_text_color }};"></i>
                                 </span>
-                                <span class="text-uppercase">Keep Shopping</span>
+                                <span class="{% if x.do_not_display %}
+                                do-not-display {% else %} text-uppercase {% endif %}"
+                                    style="color: {{ x.keep_shopping_button_text_color }};">Keep Shopping</span>
                             </a>
-                            <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                            {% endfor %}
+                            {% for x in products_page_customisation %}
+
+                            <a href="{% url 'checkout' %}" class="{% if x.do_not_display %}
+                            do-not-display {% else %} btn btn-black rounded-0 btn-lg {% endif %}"
+                                style="background-color: {{ x.add_to_bag_button_color }};">
                                 <span class="text-uppercase">Secure Checkout</span>
                                 <span class="icon">
                                     <i class="fas fa-lock"></i>
                                 </span>
                             </a>
+                            {% endfor %}
+
                         </td>
                     </tr>
                 </table>
