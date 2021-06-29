@@ -2,6 +2,28 @@ from django.db import models
 from colorfield.fields import ColorField
 
 
+class GlobalSiteStyling(models.Model):
+    global_site_styles = models.CharField(blank=False, null=False, max_length=20, help_text="Give these global styles a name...")
+    base_background_color = ColorField(format='hex', default='#FFFFFF')
+    base_font_color = ColorField(format='hex', default='#000000')
+    all_icon_colors = ColorField(format='hex', default='#000000')
+    primary_button_base_color = ColorField(format='hex', default='#000000')
+    primary_button_text_color = ColorField(format='hex', default='#000000')
+    secondary_button_base_color = ColorField(format='hex', default='#000000')
+    secondary_button_text_color = ColorField(format='hex', default='#000000')
+    
+    do_not_display = models.BooleanField(verbose_name='Do not display',
+                                        default=False,
+                                        help_text='Check this box to hide this specific styling.')
+    
+    class Meta:
+        verbose_name_plural = 'Global Page Styles'
+        
+    
+    def __str__(self):
+        return self.global_site_styles
+
+
 class HomePageCustomisation(models.Model):
     TEXT_ALIGNMENT_CHOICES = {
         ('text-align__right', 'Right'),

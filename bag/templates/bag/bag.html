@@ -11,21 +11,21 @@
 {% endblock %}
 
 {% block content %}
-{% for x in products_page_customisation %}
-<div class="{% if x.do_not_display %}
-do-not-display {% else %} overlay {% endif %}" style="background-color: {{ x.product_page_background_color }};">
+{% for y in global_styles %}
+<div class="{% if y.do_not_display %}
+do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.base_background_color }} !important;">
 </div>
-{% endfor %}
+{% endfor global_styles %}
 <div class="container mb-2 mt-5">
     <div class="row">
         <div class="col">
             <hr>
-            {% for x in products_page_customisation %}
-            <h2 class="{% if x.do_not_display %}
-            do-not-display {% else %} logo-font mb-4 {% endif %}" style="color: {{ x.products_page_text_color }};">
+            {% for y in global_styles %}
+            <h2 class="{% if y.do_not_display %}
+            do-not-display {% else %} logo-font mb-4 {% endif %}" style="color: {{ y.base_font_color }};">
                 Shopping Bag
             </h2>
-            {% endfor %}
+            {% endfor global_styles %}
             <hr>
         </div>
     </div>
@@ -35,10 +35,10 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ x.pro
             {% if bag_items %}
             <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
-                    {% for x in products_page_customisation %}
-                    <thead class="{% if x.do_not_display %}
+                    {% for y in global_styles %}
+                    <thead class="{% if y.do_not_display %}
                     do-not-display {% else %} text-black {% endif %}"
-                        style="color: {{ x.products_page_text_color }} !important;">
+                        style="color: {{ y.base_font_color }} !important;">
                         <tr>
                             <th scope="col">Product Info</th>
                             <th scope="col"></th>
@@ -47,12 +47,11 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ x.pro
                             <th scope="col">Subtotal</th>
                         </tr>
                     </thead>
-                    {% endfor %}
+                    {% endfor global_styles %}
                     {% for item in bag_items %}
-                    {% for x in products_page_customisation %}
-
-                    <tr class="{% if x.do_not_display %}
-                    do-not-display {% else %} {% endif %}" style="color: {{ x.products_page_text_color }} !important;">
+                    {% for y in global_styles %}
+                    <tr class="{% if y.do_not_display %}
+                    do-not-display {% else %} {% endif %}" style="color: {{ y.base_font_color }} !important;">
                         <td class="p-3 w-25">
                             {% if item.product.image %}
                             <img class="img-fluid rounded" src="{{ item.product.image.url }}"
@@ -124,10 +123,15 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ x.pro
                             <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </td>
                     </tr>
-                    {% endfor %}
+                    {% endfor global_styles %}
                     {% endfor %}
                     <tr>
-                        <td colspan="5" class="pt-5 text-right">
+
+
+                        {% for y in global_styles  %}
+                        <td colspan="5" class="{% if x.do_not_display %}
+                        do-not-display {% else %} pt-5 text-right {% endif %}"
+                            style="color: {{ y.base_font_color }} !important;">
                             <h6><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
                             <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
                             <h4 class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
@@ -138,34 +142,40 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ x.pro
                             </p>
                             {% endif %}
                         </td>
+                        {% endfor %}
+
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">
-                            {% for x in products_page_customisation %}
-                            <a href="{% url 'products' %}" class="{% if x.do_not_display %}
+                            {% for y in global_styles %}
+                            <a href="{% url 'products' %}" class="{% if y.do_not_display %}
                             do-not-display {% else %} btn btn-outline-black rounded-0 btn-lg {% endif %}"
-                                style="background-color: {{ x.keep_shopping_button_color }};">
+                                style="background-color: {{ y.primary_button_base_color }};">
                                 <span class="icon">
-                                    <i class="{% if x.do_not_display %}
+                                    <i class="{% if y.do_not_display %}
                                     do-not-display {% else %} fas fa-chevron-left {% endif %}"
-                                        style="color: {{ x.keep_shopping_button_text_color }};"></i>
+                                        style="color: {{ y.primary_button_text_color }};"></i>
                                 </span>
-                                <span class="{% if x.do_not_display %}
+                                <span class="{% if y.do_not_display %}
                                 do-not-display {% else %} text-uppercase {% endif %}"
-                                    style="color: {{ x.keep_shopping_button_text_color }};">Keep Shopping</span>
+                                    style="color: {{ y.primary_button_text_color }};">Keep Shopping</span>
                             </a>
-                            {% endfor %}
-                            {% for x in products_page_customisation %}
 
-                            <a href="{% url 'checkout' %}" class="{% if x.do_not_display %}
+                            <a href="{% url 'checkout' %}" class="{% if y.do_not_display %}
                             do-not-display {% else %} btn btn-black rounded-0 btn-lg {% endif %}"
-                                style="background-color: {{ x.add_to_bag_button_color }};">
-                                <span class="text-uppercase">Secure Checkout</span>
+                                style="background-color: {{ y.secondary_button_base_color }};">
+                                <span class="{% if y.do_not_display %}
+                                do-not-display {% else %} text-uppercase {% endif %}"
+                                    style="color: {{ y.secondary_button_text_color }};">
+                                    Secure Checkout
+                                </span>
                                 <span class="icon">
-                                    <i class="fas fa-lock"></i>
+                                    <i class="{% if y.do_not_display %}
+                                    do-not-display {% else %} fas fa-lock {% endif %}"
+                                        style="color: {{ y.secondary_button_text_color }};"></i>
                                 </span>
                             </a>
-                            {% endfor %}
+                            {% endfor global_styles %}
 
                         </td>
                     </tr>

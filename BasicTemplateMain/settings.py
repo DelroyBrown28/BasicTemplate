@@ -121,6 +121,7 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'context_processors.context_processors.header_customisation_processor',
                 'context_processors.context_processors.products_page_customisation_processor',
+                'context_processors.context_processors.global_styles_processor',
                 'bag.contexts.bag_contents',
             ],
             'builtins': [

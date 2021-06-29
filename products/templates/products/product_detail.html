@@ -13,10 +13,11 @@
 
 
 {% block content %}
-{% for x in products_page_customisation %}
+{% for y in global_styles  %}
 <div class="{% if x.do_not_display %}
-do-not-display {% else %} overlay {% endif %}" style="background-color: {{ x.product_page_background_color }};"></div>
-{% endfor %}
+do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.base_background_color }} !important;">
+</div>
+{% endfor global_styles %}
 
 <div class="container-fluid">
     <div class="row">
@@ -36,38 +37,42 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ x.pro
         <div class="col-12 col-md-6 col-lg-4">
             <div class="products detail-container mb-5 mt-md-5">
 
-                {% for x in products_page_customisation %}
-                <p class="{% if x.do_not_display %}
-                do-not-display {% else %} mb-0 {% endif %}" style="color: {{ x.products_page_text_color }};">
+                {% for y in global_styles %}
+                <p class="{% if y.do_not_display %}
+                do-not-display {% else %} mb-0 {% endif %}" style="color: {{ y.base_font_color }};">
                     {{ product.name }}
                 </p>
-                {% endfor %}
-                {% for x in products_page_customisation %}
-                <p class="{% if x.do_not_display %}
+                <p class="{% if y.do_not_display %}
                 do-not-display {% else %} lead mb-0 text-left font-weight-bold {% endif %}"
-                    style="color: {{ x.products_page_text_color }};">
+                    style="color: {{ y.base_font_color }};">
                     £{{ product.price }}
                 </p>
-                {% endfor %}
+                {% endfor global_styles %}
                 {% if product.category %}
-                {% for x in products_page_customisation %}
-                <p class="{% if x.do_not_display %}
+                {% for y in global_styles %}
+                <p class="{% if y.do_not_display %}
             do-not-display {% else %} small mt-1 mb-0 {% endif %}">
                     <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}"
-                        style="color: {{ x.products_page_text_color }} !important;">
-                        <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                        style="color: {{ y.base_font_color }} !important;">
+                        <i class="{% if y.do_not_display %}
+                        do-not-display {% else %} fas fa-tag mr-1 {% endif %}" style="color: {{ y.all_icon_colors }};">
+                        </i>
+                        {{ product.category.friendly_name }}
                     </a>
                 </p>
-                {% endfor %}
+                {% endfor global_styles %}
                 {% endif %}
+
                 {% if product.rating %}
-                {% for x in products_page_customisation %}
-                <small class="{% if x.do_not_display %}
-                do-not-display {% else %} test-muted {% endif %}"
-                    style="color: {{ x.products_page_text_color }} !important;">
-                    <i class="fa fa-star mr-1"></i>{{ product.rating }} / 5
+                {% for y in global_styles %}
+                <small class="{% if y.do_not_display %}
+                do-not-display {% else %} test-muted {% endif %}" style="color: {{ y.base_font_color }} !important;">
+                    <i class="{% if y.do_not_display %}
+                    do-not-display {% else %} fa fa-star mr-1 {% endif %}" style="color: {{ y.all_icon_colors }};">
+                    </i>
+                    {{ product.rating }} / 5
                 </small>
-                {% endfor %}
+                {% endfor global_styles %}
                 {% else %}
                 <small class="test-muted">NO RATING</small>
                 {% endif %}
@@ -77,12 +82,12 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ x.pro
                     <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                 </small>
                 {% endif %}
-                {% for x in products_page_customisation %}
-                <p class="{% if x.do_not_display %}
-                do-not-display {% else %} mt-3 {% endif %}" style="color: {{ x.products_page_text_color }};">
+                {% for y in global_styles %}
+                <p class="{% if y.do_not_display %}
+                do-not-display {% else %} mt-3 {% endif %}" style="color: {{ y.base_font_color }};">
                     {{ product.description }}
                 </p>
-                {% endfor %}
+                {% endfor global_styles %}
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
@@ -144,23 +149,24 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ x.pro
                             </div>
                         </div>
                         <div class="col{% if s %}-12 mt-2 {% endif %}">
-                            {% for x in products_page_customisation %}
-                            <a href="{% url 'products' %}" class="{% if x.do_not_display %}
+                            {% for y in global_styles %}
+                            <a href="{% url 'products' %}" class="{% if y.do_not_display %}
                             do-not-display {% else %} btn btn-outline-black rounded-0 mt-5 {% endif %}"
-                                style="background-color: {{ x.keep_shopping_button_color }};">
+                                style="background-color: {{ y.primary_button_base_color }};">
                                 <span class="icon">
-                                    <i class="{% if x.do_not_display %}
+                                    <i class="{% if y.do_not_display %}
                                     do-not-display {% else %} fas fa-chevron-left {% endif %}"
-                                        style="color: {{ x.keep_shopping_button_text_color }};"></i>
+                                        style="color: {{ y.primary_button_text_color }};"></i>
                                 </span>
-                                <span class="{% if x.do_not_display %}
+                                <span class="{% if y.do_not_display %}
                                 do-not-display {% else %} text-uppercase {% endif %}"
-                                    style="color: {{ x.keep_shopping_button_text_color }};">Keep Shopping</span>
+                                    style="color: {{ y.primary_button_text_color }};">Keep Shopping</span>
                             </a>
-                            <input type="submit" class="{% if x.do_not_display %}
+                            <input type="submit" class="{% if y.do_not_display %}
                             do-not-display {% else %} btn btn-black rounded-0 text-uppercase mt-5 {% endif %}"
-                                style="background-color: {{ x.add_to_bag_button_color }};" value="Add to Bag">
-                            {% endfor %}
+                                style="background-color: {{ y.secondary_button_base_color }} !important; color: {{ y.secondary_button_text_color }}"
+                                value="Add to Bag">
+                            {% endfor global_styles %}
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}
