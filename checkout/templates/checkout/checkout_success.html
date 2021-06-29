@@ -191,7 +191,8 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.bas
                 <div class="row">
                     <div class="col">
                         <small class="{% if y.do_not_display %}
-                        do-not-display {% else %} text-muted {% endif %}" style="color: {{ y.base_font_color }} !important;">Billing Info:</small>
+                        do-not-display {% else %} text-muted {% endif %}"
+                            style="color: {{ y.base_font_color }} !important;">Billing Info:</small>
                     </div>
                 </div>
 
@@ -224,14 +225,15 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.bas
             </div>
         </div>
     </div>
-    {% endfor global_styles %}
 
     <div class="row">
-        <div class="col-12 col-lg-7 text-right">
+        <div class="col-12 col-lg-7 mt-2 text-left">
 
             {% if from_profile %}
-            <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
-                <span class="icon mr-2">
+            <a href="{% url 'profile' %}" class="{% if y.do_not_display %}
+            do-not-display {% else %} btn btn-black rounded-0 my-2 {% endif %}"
+                style="background-color: {{ y.secondary_button_base_color }} !important; color: {{ y.secondary_button_text_color }};">
+                <span class="icon">
                     <i class="fas fa-angle-left"></i>
                 </span>
                 <span class="text-uppercase">Profile</span>
@@ -247,6 +249,8 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.bas
 
         </div>
     </div>
+    {% endfor global_styles %}
+
 </div>
 
 <script src="{% static 'checkout/javascript/stripe_elements.js' %}"></script>
