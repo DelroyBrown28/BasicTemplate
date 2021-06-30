@@ -5,7 +5,7 @@
     {% for y in global_styles  %}
     <div id="topnav" class="{% if x.do_not_display %}
     do-not-display {% else %} row pt-lg-2 d-none d-lg-flex {% endif %}"
-        style="background-color: {{ y.base_background_color }} !important;">
+        style="background-color: {{ x.header_background_color }} !important;">
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
             <a href="{% url 'home' %}" class="nav-link main-logo-link">
                 <!-- <h2 class="logo-font text-black my-0"><strong>Nue</strong> Store</h2> -->
@@ -120,10 +120,9 @@
 
     {% for x in header_customisation  %}
     {% for y in global_styles  %}
-
     <div class="{% if x.do_not_display %}
     do-not-display {% else %} row bg-light {% endif %}"
-        style="background-color: {{ y.base_background_color }} !important;">
+        style="background-color: {{ x.header_background_color }} !important;">
         <nav class="navbar navbar-expand-lg navbar-dark w-100">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
                 aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">

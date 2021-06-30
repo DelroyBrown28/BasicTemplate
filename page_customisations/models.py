@@ -65,8 +65,6 @@ class HeaderCustomisation(models.Model):
     header_styling = models.CharField(blank=False, null=False, max_length=55, default="Default Styling")
     header_logo = models.ImageField(null=True, blank=True, upload_to='media')
     header_background_color = ColorField(format='hexa')
-    header_icon_color = ColorField(format='hexa')
-    header_text_color = ColorField(format='hexa')
     search_icon_color = ColorField(format='hexa')
     search_icon_background_color = ColorField(format='hexa')
     small_banner_text = models.CharField(blank=False, null=False, max_length=100, default="Welcome")
@@ -90,23 +88,17 @@ class ProductsPageCustomisation(models.Model):
         ('no-border', 'No Border'),
     )
     products_page_styling = models.CharField(blank=False, null=False, max_length=55, default="Default Product Page Styling")
-    product_page_background_color = ColorField(format='hexa')
-    products_page_text_color = ColorField(format='hexa')
     category_tag_border_color = ColorField(format='hexa')
     category_tag_text_color = ColorField(format='hexa')
     product_card_background_color = ColorField(format='hexa')
     add_card_border = models.TextField(choices=BORDER_SIZE_CHOICES,
                                                    blank=False,
                                                    null=False,
-                                                   default="No Border")
+                                                   default="no-border")
     border_color = ColorField(format='hexa')
     product_card_font_color = ColorField(format='hex')
     product_card_icon_color = ColorField(format='hexa')
     product_quantity_buttons = ColorField(format='hexa', help_text="**Product Display Page")
-    keep_shopping_button_color = ColorField(format='hexa', help_text="**Product Display Page")
-    keep_shopping_button_text_color = ColorField(format='hexa', help_text="**Product Display Page")
-    add_to_bag_button_color = ColorField(format='hexa', help_text="**Product Display Page")
-    add_to_bag_button_text_color = ColorField(format='hexa', help_text="**Product Display Page")
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                     default=False,
                                     help_text='**Check this box to hide this specific styling.')
