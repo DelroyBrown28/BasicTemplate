@@ -100,7 +100,7 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.unregister(User)
+# admin.site.unregister(User)
 admin.site.unregister(Group)
 admin.site.unregister(Site)
 admin.site.unregister(SocialToken)
