@@ -25,11 +25,11 @@ class GlobalSiteStyling(models.Model):
         
         
     def save(self, *args, **kwargs):
-        if self.do_not_display:
+        if self.do_not_display == False:
             try:
-                temp = GlobalSiteStyling.objects.get(do_not_display=True)
+                temp = GlobalSiteStyling.objects.get(do_not_display=False)
                 if self != temp:
-                    temp.do_not_display = False
+                    temp.do_not_display = True
                     temp.save()
             except GlobalSiteStyling.DoesNotExist:
                 pass
@@ -70,11 +70,11 @@ class HomePageCustomisation(models.Model):
         
     
     def save(self, *args, **kwargs):
-        if self.do_not_display:
+        if self.do_not_display == False:
             try:
-                temp = HomePageCustomisation.objects.get(do_not_display=True)
+                temp = HomePageCustomisation.objects.get(do_not_display=False)
                 if self != temp:
-                    temp.do_not_display = False
+                    temp.do_not_display = True
                     temp.save()
             except HomePageCustomisation.DoesNotExist:
                 pass
@@ -103,11 +103,11 @@ class HeaderCustomisation(models.Model):
         
     
     def save(self, *args, **kwargs):
-        if self.do_not_display:
+        if self.do_not_display == False:
             try:
-                temp = HeaderCustomisation.objects.get(do_not_display=True)
+                temp = HeaderCustomisation.objects.get(do_not_display=False)
                 if self != temp:
-                    temp.do_not_display = False
+                    temp.do_not_display = True
                     temp.save()
             except HeaderCustomisation.DoesNotExist:
                 pass
@@ -146,7 +146,7 @@ class ProductsPageCustomisation(models.Model):
         
         
     def save(self, *args, **kwargs):
-        if self.do_not_display:
+        if self.do_not_display == False:
             try:
                 temp = ProductsPageCustomisation.objects.get(do_not_display=True)
                 if self != temp:
