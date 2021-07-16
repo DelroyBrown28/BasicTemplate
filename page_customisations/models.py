@@ -23,6 +23,18 @@ class GlobalSiteStyling(models.Model):
     class Meta:
         verbose_name_plural = 'Global Page Styles'
         
+        
+    def save(self, *args, **kwargs):
+        if self.do_not_display:
+            try:
+                temp = GlobalSiteStyling.objects.get(do_not_display=True)
+                if self != temp:
+                    temp.do_not_display = False
+                    temp.save()
+            except GlobalSiteStyling.DoesNotExist:
+                pass
+        super(GlobalSiteStyling, self).save(*args, **kwargs)
+        
     
     def __str__(self):
         return self.global_site_styles
@@ -57,6 +69,18 @@ class HomePageCustomisation(models.Model):
         verbose_name_plural = 'Home Page'
         
     
+    def save(self, *args, **kwargs):
+        if self.do_not_display:
+            try:
+                temp = HomePageCustomisation.objects.get(do_not_display=True)
+                if self != temp:
+                    temp.do_not_display = False
+                    temp.save()
+            except HomePageCustomisation.DoesNotExist:
+                pass
+        super(HomePageCustomisation, self).save(*args, **kwargs)
+        
+    
     def __str__(self):
         return self.home_page_styling
     
@@ -76,6 +100,18 @@ class HeaderCustomisation(models.Model):
     
     class Meta:
         verbose_name_plural = 'Header'
+        
+    
+    def save(self, *args, **kwargs):
+        if self.do_not_display:
+            try:
+                temp = HeaderCustomisation.objects.get(do_not_display=True)
+                if self != temp:
+                    temp.do_not_display = False
+                    temp.save()
+            except HeaderCustomisation.DoesNotExist:
+                pass
+        super(HeaderCustomisation, self).save(*args, **kwargs)
         
     
     def __str__(self):
@@ -107,6 +143,18 @@ class ProductsPageCustomisation(models.Model):
     
     class Meta:
         verbose_name_plural = 'Products Page'
+        
+        
+    def save(self, *args, **kwargs):
+        if self.do_not_display:
+            try:
+                temp = ProductsPageCustomisation.objects.get(do_not_display=True)
+                if self != temp:
+                    temp.do_not_display = False
+                    temp.save()
+            except ProductsPageCustomisation.DoesNotExist:
+                pass
+        super(ProductsPageCustomisation, self).save(*args, **kwargs)
         
     
     def __str__(self):
