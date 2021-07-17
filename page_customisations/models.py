@@ -113,6 +113,7 @@ class HeaderCustomisation(models.Model):
                 pass
         super(HeaderCustomisation, self).save(*args, **kwargs)
         
+        
     
     def __str__(self):
         return self.header_styling
@@ -148,9 +149,9 @@ class ProductsPageCustomisation(models.Model):
     def save(self, *args, **kwargs):
         if self.do_not_display == False:
             try:
-                temp = ProductsPageCustomisation.objects.get(do_not_display=True)
+                temp = ProductsPageCustomisation.objects.get(do_not_display=False)
                 if self != temp:
-                    temp.do_not_display = False
+                    temp.do_not_display = True
                     temp.save()
             except ProductsPageCustomisation.DoesNotExist:
                 pass

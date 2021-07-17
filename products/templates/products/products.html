@@ -14,7 +14,7 @@
 
 {% block content %}
 {% for y in global_styles  %}
-<div class="{% if x.do_not_display %}
+<div class="{% if y.do_not_display %}
 do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.base_background_color }} !important;">
 </div>
 {% endfor global_styles %}
@@ -81,7 +81,7 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.bas
 
                     {% for x in products_page_customisation %}
                     {% for y in global_styles %}
-                    <p class="{% if x.do_not_display %}
+                    <p class="{% if y.do_not_display %}
                         do-not-display {% else %} mt-3 text-center text-md-left {% endif %}"
                         style="color: {{ y.base_font_color }};">
                         {% if search_term or current_categories or current_sorting != 'None_None' %}
