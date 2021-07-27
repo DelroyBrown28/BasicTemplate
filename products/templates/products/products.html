@@ -25,7 +25,7 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.bas
 
     <div class="row">
         <div class="col text-center mt-3">
-            <h2 class="{% if x.do_not_display %}
+            <h2 class="{% if y.do_not_display %}
                 do-not-display {% else %} logo-font mt-5 mb-5 {% endif %}"
                 style="color: {{ y.base_font_color }} !important;">Products
             </h2>
@@ -79,7 +79,6 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.bas
                 </div>
                 <div class="col-12 col-md-6 order-md-first">
 
-                    {% for x in products_page_customisation %}
                     {% for y in global_styles %}
                     <p class="{% if y.do_not_display %}
                         do-not-display {% else %} mt-3 text-center text-md-left {% endif %}"
@@ -91,7 +90,6 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.bas
                         <strong>"{{ search_term }}"</strong>{% endif %}
                     </p>
                     {% endfor global_styles %}
-                    {% endfor products_page_customisation %}
 
                 </div>
             </div>
