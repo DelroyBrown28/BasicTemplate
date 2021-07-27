@@ -15,8 +15,8 @@
     <!-- <script src="{% static "jet/js/build/bundle.min.js" as url %}{{ url|jet_append_version }}"></script> -->
     <script src="{% static 'jet/js/build/bundle.min.js' %}"></script>
     <script src="{% static 'jet/js/inlines.js' %}"></script>
-    <link rel="stylesheet" type="text/css"
-        href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
+    
+    <link href="{% static 'css/base.css' %}" type="text/css">
     <link rel="stylesheet" type="text/css" href="{% static 'jet/css/vendor.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'jet/css/icons/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'jet/css/themes/default/base.css' %}">
@@ -111,7 +111,7 @@
         {% block messages %}
         {% if messages %}
         <ul class="messagelist">{% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message|capfirst }}</li>
+            <li{% if message.tags %} class="{{ message.tags }} success-message" {% endif %}>{{ message|capfirst }}</li>
                 {% endfor %}</ul>
         {% endif %}
         {% endblock messages %}

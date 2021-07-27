@@ -5649,15 +5649,13 @@ table#change-history tbody th {
 
 ul.messagelist {
     padding: 0;
-    margin: 0
+    margin: 0;
 }
 
 ul.messagelist li {
     display: block;
     margin: 0 20px 10px 20px;
     margin: 0 1.42857rem 0.71429rem 1.42857rem;
-    border-radius: 6px;
-    border-radius: 0.42857rem;
     padding: 10px;
     padding: 0.71429rem
 }
@@ -5672,8 +5670,8 @@ ul.messagelist li {
 }
 
 ul.messagelist li.success {
-    background: #c4ecc5;
-    color: #82b982
+    background: #354052;
+    color: #ffffff;
 }
 
 ul.messagelist li.warning,
