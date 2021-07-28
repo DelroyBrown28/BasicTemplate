@@ -14,7 +14,7 @@
 
 {% block content %}
 {% for y in global_styles  %}
-<div class="{% if x.do_not_display %}
+<div class="{% if y.do_not_display %}
 do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.base_background_color }} !important;">
 </div>
 {% endfor global_styles %}

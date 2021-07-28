@@ -239,7 +239,9 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.bas
                 <span class="text-uppercase">Profile</span>
             </a>
             {% else %}
-            <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-black rounded-0 my-2">
+            <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="{% if y.do_not_display %}
+            do-not-display {% else %} btn btn-black rounded-0 my-2 {% endif %}"
+                style="background-color: {{ y.secondary_button_base_color }} !important; color: {{ y.secondary_button_text_color }};">
                 <span class="icon mr-2">
                     <i class="fas fa-gifts"></i>
                 </span>

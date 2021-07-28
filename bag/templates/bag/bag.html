@@ -129,7 +129,7 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.bas
 
 
                         {% for y in global_styles  %}
-                        <td colspan="5" class="{% if x.do_not_display %}
+                        <td colspan="5" class="{% if y.do_not_display %}
                         do-not-display {% else %} pt-5 text-right {% endif %}"
                             style="color: {{ y.base_font_color }} !important;">
                             <h6><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
@@ -182,13 +182,25 @@ do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.bas
                 </table>
             </div>
             {% else %}
-            <p class="lead mb-5">Your bag is empty.</p>
-            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+            {% for y in global_styles %}
+
+            <p class="{% if y.do_not_display %}
+            do-not-display {% else %} lead mb-5 {% endif %}" style="color: {{ y.base_font_color }};">
+                Your bag is empty.
+            </p>
+            <a href="{% url 'products' %}" class="{% if y.do_not_display %}
+            do-not-display {% else %} btn btn-outline-black rounded-0 btn-lg {% endif %}"
+                style="background-color: {{ y.primary_button_base_color }};">
                 <span class="icon">
-                    <i class="fas fa-chevron-left"></i>
+                    <i class="{% if y.do_not_display %}
+                    do-not-display {% else %} fas fa-chevron-left {% endif %}"
+                        style="color: {{ y.primary_button_text_color }} !important;"></i>
                 </span>
-                <span class="text-uppercase">Keep Shopping</span>
+                <span class="{% if y.do_not_display %}
+                do-not-display {% else %} text-uppercase {% endif %}"
+                    style="color: {{ y.primary_button_text_color }} !important;">Keep Shopping</span>
             </a>
+            {% endfor %}
             {% endif %}
         </div>
     </div>

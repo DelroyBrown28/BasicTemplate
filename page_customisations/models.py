@@ -16,6 +16,8 @@ class GlobalSiteStyling(models.Model):
     primary_button_text_color = ColorField(format='hex', default='#000000')
     secondary_button_base_color = ColorField(format='hex', default='#000000')
     secondary_button_text_color = ColorField(format='hex', default='#000000')
+    pop_up_background_color = ColorField(format='hex', default='#FFFFFF')
+    pop_up_text_color = ColorField(format='hex', default='#000000')
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                         default=False,
                                         help_text='Check this box to hide this specific styling.')

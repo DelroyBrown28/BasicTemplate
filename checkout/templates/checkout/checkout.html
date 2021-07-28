@@ -20,21 +20,22 @@
 {% block content %}
 {% for y in global_styles %}
 <div class="{% if y.do_not_display %}
-do-not-display {% else %} overlay {% endif %}"
-style="background-color: {{ y.base_background_color }} !important;">
+do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.base_background_color }} !important;">
 </div>
+{% endfor global_styles %}
 <div class="container">
     <div class="row mt-5">
         <div class="col">
             <hr>
+            {% for y in global_styles %}
             <h2 class="{% if y.do_not_display %}
             do-not-display {% else %} logo-font mb-4 {% endif %}" style="color: {{ y.base_font_color }} !important;">
                 Checkout
             </h2>
+            {% endfor global_styles %}
             <hr>
         </div>
     </div>
-    {% endfor global_styles %}
 
     <div class="row">
         <div class="col-12 col-lg-6 order-lg-last mb-5">
@@ -622,9 +623,9 @@ style="background-color: {{ y.base_background_color }} !important;">
                             information to my
                             profile
                         </label>
+                        {% endfor global_styles %}
                         <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info"
                             checked>
-                        {% endfor global_styles %}
                         {% else %}
                         <label class="form-check-label" for="id-save-info">
                             <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
