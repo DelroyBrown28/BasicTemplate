@@ -13,8 +13,6 @@
     <script src="{% url 'jet:jsi18n' %}"></script>
 
     <!-- <script src="{% static "jet/js/build/bundle.min.js" as url %}{{ url|jet_append_version }}"></script> -->
-    <script src="{% static 'jet/js/build/bundle.min.js' %}"></script>
-    <script src="{% static 'jet/js/inlines.js' %}"></script>
     
     <link rel="stylesheet" type="text/css" href="{% static 'jet/css/vendor.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'jet/css/icons/style.css' %}">
@@ -25,6 +23,8 @@
     <link rel="stylesheet" type="text/css"
     href="{% static "jet/css/themes/"|add:THEME|add:"/jquery-ui.theme.css" as url %}{{ url|jet_append_version }}"
     class="jquery-ui-stylesheet" />
+    <script src="{% static 'jet/js/build/bundle.min.js' %}"></script>
+    <script src="{% static 'jet/js/inlines.js' %}"></script>
     <link href="{% static 'css/base.css' %}" type="text/css">
     <link href="{% static 'jet/css/themes/default/base.css' %}" type="text/css">
 
