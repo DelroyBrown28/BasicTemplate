@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+bootstrap.css
+
 # Distribution / packaging
 .Python
 # build/
