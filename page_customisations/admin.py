@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 from page_customisations.models import (HomePageCustomisation,
                                         HeaderCustomisation,
                                         ProductsPageCustomisation,
-                                        GlobalSiteStyling)
+                                        GlobalSiteStyling,
+                                        AboutPageCustomisation)
 from BasicTemplateMain.admin import superadmin
 
 
@@ -50,12 +51,22 @@ class ProductsPageCustomisationAdmin(admin.ModelAdmin):
         
     )
     
+class AboutPageCustomisationAdmin(admin.ModelAdmin):
+    list_display = (
+    'styling_name',
+    'do_not_display',
+    )
+    list_editable = (
+    'do_not_display',
+    )
+
 """
 superadmin.register() to register for superuser admin
 """
 
-superadmin.register(GlobalSiteStyling, GlobalSiteStylingAdmin)
+superadmin.register(AboutPageCustomisation, AboutPageCustomisationAdmin)
 superadmin.register(HomePageCustomisation, HomePageCustomisationAdmin)
 superadmin.register(HeaderCustomisation, HeaderCustomisationAdmin)
 superadmin.register(ProductsPageCustomisation, ProductsPageCustomisationAdmin)
+superadmin.register(GlobalSiteStyling, GlobalSiteStylingAdmin)
 superadmin.register(User)

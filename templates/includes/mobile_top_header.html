@@ -33,24 +33,52 @@
     </div>
 </li>
 <li class="list-inline-item dropdown">
+    <a class="text-black nav-link d-block d-lg-none dropdown-toggle" href="{% url 'about' %}">
+        <div class="text-center">
+            <div <i class="{% if x.do_not_display %}
+                do-not-display {% else %} fas fa-users fa-lg {% endif %}" style="color: {{ x.icon_colors }}!important;">
+                </i>
+            </div>
+            {% for x in header_customisation  %}
+            <p class="{% if x.do_not_display %}
+           do-not-display {% else %} my-0 text-black {% endif %}" style="{{ x.main_text_color }};">
+                About
+            </p>
+            {% endfor %}
+        </div>
+    </a>
+    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+        {% if request.user.is_superuser %}
+        <a href="/superadmin" class="dropdown-item">
+            <img src="{% static 'images/superadminicon.png' %}" class="mr-1" style="height: 16px !important;">
+            Super Admin
+        </a>
+        {% if request.user.is_authenticated %}
+        <a href="/admin" class="dropdown-item">Website Admin</a>
+        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+        {% endif %}
+        {% else %}
+        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+        {% endif %}
+    </div>
+</li>
+<li class="list-inline-item dropdown">
     <a class="text-black nav-link d-block d-lg-none dropdown-toggle" href="{% url 'products' %}" id="user-options"
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
-            <div><i class="{% if x.do_not_display %}
-                do-not-display {% else %} fas fa-user fa-lg {% endif %}"
-                    style="color: {{ x.icon_colors }}!important;"></i></div>
-
-
-           
-           {% for x in header_customisation  %}
-               
-           <p class="{% if x.do_not_display %}
+            <div <i class="{% if x.do_not_display %}
+                do-not-display {% else %} fas fa-user fa-lg {% endif %}" style="color: {{ x.icon_colors }}!important;">
+                </i>
+            </div>
+            {% for x in header_customisation  %}
+            <p class="{% if x.do_not_display %}
            do-not-display {% else %} my-0 text-black {% endif %}" style="{{ x.main_text_color }};">
-           My Account
-           </p>
-           {% endfor %}
-               
-
+                My Account
+            </p>
+            {% endfor %}
         </div>
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">

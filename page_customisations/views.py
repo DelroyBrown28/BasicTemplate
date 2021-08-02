@@ -2,7 +2,8 @@ from django.shortcuts import render
 from .models import (HomePageCustomisation,
                      HeaderCustomisation,
                      ProductsPageCustomisation,
-                     GlobalSiteStyling)
+                     GlobalSiteStyling,
+                     AboutPageCustomisation)
 
 
 def header_customisation(request):
@@ -12,6 +13,7 @@ def header_customisation(request):
         'header_customisation' : header_customisation,
     }
     return render(request, 'includes/header.html', context)
+
 
 
 def products_page_customisation(request):

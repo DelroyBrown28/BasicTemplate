@@ -357,7 +357,65 @@ category-badge span {
     /* text-info */
 }
 
+/* 
+============
+CONTACT PAGE
+============
+*/
 
+.card-img-top {
+    width: 100%;
+}
+
+.card-img-top {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.contact-card-title {
+    font-size: 30px;
+}
+
+.contact-card, .card-footer {
+    background-color: transparent;
+    border: none;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+}
+
+
+/* 
+==========
+ABOUT PAGE
+==========
+*/
+
+
+
+.about-page-title {
+    margin-top: 200px;
+    text-transform: uppercase !important;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.about-page-blurb {
+    font-size: 30px;
+    font-weight: 300;
+    width: 40%;
+
+}
+
+.about-page-content {
+    font-size: 20px;
+}
+
+.about-blurb-wrap {
+    padding: 0px 15px;
+}
 
 @media (max-width: 991px) {
     .header-container {
@@ -366,5 +424,14 @@ category-badge span {
 
     body {
         height: calc(100vh - 116px);
+    }
+
+    .about-page-blurb {
+        width: 100%;
+
+    }
+
+    .left-image {
+        display: none !important;
     }
 }

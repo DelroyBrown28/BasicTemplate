@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!-- TOP IMAGE -->
+{% for y in global_styles  %}
+
+<div class="{% if y.do_not_display %}
+do-not-display {% else %} overlay {% endif %}" style="background-color: {{ y.base_background_color }};"></div>
+
+{% endfor %}
+
+<!-- CONTENTS -->
+
+{% for x in about_page_customisation  %}
+{% for y in global_styles  %}
+<h1 class="{% if x.do_not_display or y.do_not_display %}
+do-not-display {% else %} about-page-title text-center {% endif %}" style="color: {{y.base_font_color}};">
+    {{ x.about_section_title }}
+</h1>
+<div class="{% if x.do_not_display or y.do_not_display %}
+do-not-display {% else %} d-flex justify-content-center about-blurb-wrap {% endif %}"
+    style="color: {{y.base_font_color}};">
+    <p class="about-page-blurb text-center my-5"><em>"{{ x.about_section_blurb }}"</em></p>
+</div>
+
+<div class="{% if x.do_not_display or y.do_not_display %}
+do-not-display {% else %} container {% endif %}">
+    <hr style="background-color: #333;">
+</div>
+
+<div class="{% if x.do_not_display or y.do_not_display %}
+do-not-display {% else %} container my-5 {% endif %}" style="color: {{y.base_font_color}};">
+    <p class="about-page-content">{{ x.about_section_content }}</p>
+
+    <div class="d-flex justify-content-between my-5">
+        <div class="card left-image" style="width: 45rem;">
+            <img src="{{ x.about_section_left_image.url }}" class="card-img-top" alt="...">
+        </div>
+        <div class="card right-image" style="width: 45rem;">
+            <img src="{{ x.about_section_right_image.url }}" class="card-img-top" alt="...">
+        </div>
+    </div>
+</div>
+
+<div class="{% if x.do_not_display or y.do_not_display %}
+do-not-display {% else %} container my-5 {% endif %}">
+    <hr style="background-color: #333;">
+</div>
+
+<h1 class="{% if x.do_not_display or y.do_not_display %}
+do-not-display {% else %} about-page-title text-center {% endif %}" style="color: {{y.base_font_color}};">
+    {{ x.contact_section_title }}
+</h1>
+<div class="{% if x.do_not_display or y.do_not_display %}
+do-not-display {% else %} d-flex justify-content-center about-blurb-wrap {% endif %}"
+    style="color: {{y.base_font_color}};">
+    <p class="about-page-blurb text-center my-5"><em>"{{ x.about_section_blurb }}"</em></p>
+</div>
+{% endfor %}
+{% endfor %}
+<div class="container d-flex justify-content-center">
+    <div class="card contact-card" style="width: 45rem;">
+        <img src="{% static 'images/aboutpagebeeds.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <p class="card-text contact-card-title">Tiffany.</p>
+            <p class="card-text contact-card-email">Tiffanysbeads@gmail.com</p>
+            <p class="card-text contact-card-phone">07754 556522</p>
+        </div>
+        <div class="card-footer px-5 d-flex justify-content-between">
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-linkedin-in"></i>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+    </div>
+</div>
+{% endblock content %}
