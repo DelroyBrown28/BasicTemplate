@@ -33,20 +33,26 @@
     </div>
 </li>
 <li class="list-inline-item dropdown">
+    {% for x in header_customisation  %}
+    {% for y in global_styles  %}
+    {% if request.get_full_path == '/about/' %}
+    {% else %}
     <a class="text-black nav-link d-block d-lg-none dropdown-toggle" href="{% url 'about' %}">
         <div class="text-center">
             <div <i class="{% if x.do_not_display %}
-                do-not-display {% else %} fas fa-users fa-lg {% endif %}" style="color: {{ x.icon_colors }}!important;">
+                do-not-display {% else %} fas fa-users fa-lg {% endif %}"
+                style="color: {{ x.icon_colors }}!important;">
                 </i>
             </div>
-            {% for x in header_customisation  %}
-            <p class="{% if x.do_not_display %}
-           do-not-display {% else %} my-0 text-black {% endif %}" style="{{ x.main_text_color }};">
+            <p class="{% if x.do_not_display or y.do_not_display %}
+            do-not-display {% else %} my-0 text-black {% endif %}" style="{{ y.base_font_color }};">
                 About
             </p>
-            {% endfor %}
         </div>
     </a>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
         {% if request.user.is_superuser %}
         <a href="/superadmin" class="dropdown-item">

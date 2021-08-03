@@ -13,6 +13,7 @@ urlpatterns = [
     # Main Admin URL
     path('admin/', admin.site.urls),
     path('superadmin/', superadmin.urls),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
     # Website URLs
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),  

@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'jet',
     # Django Stuff
     'django.contrib.admin',
+    'djrichtextfield',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -55,6 +56,17 @@ SITE_ID = 1
 JET_SIDE_MENU_COMPACT = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//cdn.tiny.cloud/1/ejfej7wzcg1hib8eew1onmh8d577qbpz8zcxwbb9ldzpk69m/tinymce/5/tinymce.min.js'],
+    'init_template': 'djrichtextfield/init/tinymce.js',
+    'settings': {
+        'menubar': False,
+        'plugins': 'link image',
+        'toolbar': 'bold italic | link image | removeformat',
+        'width': 700
+    }
+}
 
 
 
@@ -225,4 +237,8 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FORM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
+
+TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/ejfej7wzcg1hib8eew1onmh8d577qbpz8zcxwbb9ldzpk69m/tinymce/5/tinymce.min.js'
+TINYMCE_COMPRESSOR = False
 

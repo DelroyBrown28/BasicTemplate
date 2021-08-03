@@ -1,4 +1,5 @@
 from django.db import models
+from djrichtextfield.models import RichTextField
 from colorfield.fields import ColorField
 
 
@@ -168,15 +169,21 @@ class AboutPageCustomisation(models.Model):
     styling_name = models.CharField(blank=False, null=False, max_length=55, default="Default")
     about_section_title = models.CharField(max_length=100, blank=False, null=False)
     about_section_blurb = models.TextField(max_length=250, blank=False, null=False, default='Short blurb')
-    about_section_content = models.TextField(max_length=3000, blank=False, null=False, default='About You...')
+    about_section_content = RichTextField()
     about_section_left_image = models.ImageField(null=True, blank=True, upload_to='about_page_images')
     about_section_right_image = models.ImageField(null=True, blank=True, upload_to='about_page_images')
      
     contact_section_title = models.CharField(max_length=100, blank=False, null=False)
     contact_section_blurb = models.TextField(max_length=250, blank=False, null=False, default='Short blurb')
-    contact_section_info = models.TextField(max_length=500, blank=False, null=False, default='Short blurb')
+    contact_card_title = models.TextField(max_length=250, blank=False, null=False, default='Short blurb')
+    contact_card_info = RichTextField()
     contact_card_image = models.ImageField(null=True, blank=True, upload_to='about_page_images/contact_page_images')
 
+    twitter_link = models.URLField(max_length=200, default='Link to your Twitter Account')
+    linkedin_link = models.URLField(max_length=200, default='Link to your LinkedIn Account')
+    facebook_link = models.URLField(max_length=200, default='Link to your Facebook Account')
+    instagram_link = models.URLField(max_length=200, default='Link to your Instagram Account')
+    
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                 default=False,
                                 help_text='**Check this box to hide this specific styling.')

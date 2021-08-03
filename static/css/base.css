@@ -13,6 +13,7 @@
 
 html {
     height: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -21,6 +22,7 @@ body {
     color: #555;
     scroll-behavior: smooth;
     font-family: 'Lato', sans-serif;
+    scroll-behavior: smooth;
 }
 
 .home-body {
@@ -381,6 +383,10 @@ CONTACT PAGE
     border: none;
 }
 
+.contact-card {
+    border: 1px solid #333 !important;
+}
+
 .footer {
     background-color: #333;
     color: #fff;
@@ -400,22 +406,73 @@ ABOUT PAGE
     text-transform: uppercase !important;
     font-size: 60px;
     font-weight: 600;
+    margin-bottom: 0;
 }
 
-.about-page-blurb {
+.about-page-blurb  {
     font-size: 30px;
     font-weight: 300;
     width: 40%;
-
 }
 
+
 .about-page-content {
-    font-size: 20px;
+    font-size: 20px !important;
 }
 
 .about-blurb-wrap {
     padding: 0px 15px;
 }
+
+body > div:nth-child(12) > em > div > p {
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    width: 40%;
+}
+
+.contact-jumbotron {
+    border: 1px solid #333;
+    padding: 0 !important;
+}
+
+.contact-section-title {
+    text-transform: uppercase !important;
+    font-size: 60px;
+    font-weight: 600;
+    margin-bottom: 0;
+
+}
+
+.contact-section-blurb {
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    width: 40%;
+}
+
+.contact-info {
+    font-size: 30px;
+    color: #333;
+    font-weight: 300;
+}
+
+.contact-card-info p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+  }
 
 @media (max-width: 991px) {
     .header-container {
