@@ -56,17 +56,18 @@ do-not-display {% else %} about-page-title text-center {% endif %}" style="color
 <div class="{% if x.do_not_display or y.do_not_display %}
 do-not-display {% else %} d-flex justify-content-center about-blurb-wrap {% endif %}"
     style="color: {{y.base_font_color}};">
-    <p class="about-page-blurb text-center my-5"><em>"{{ x.about_section_blurb }}"</em></p>
+    <p class="about-page-blurb text-center my-5"><em>"{{ x.contact_section_blurb }}"</em></p>
 </div>
-{% endfor %}
-{% endfor %}
-<div class="container d-flex justify-content-center">
+
+
+
+<div class="{% if x.do_not_display or y.do_not_display %}
+do-not-display {% else %} container d-flex justify-content-center {% endif %}">
     <div class="card contact-card" style="width: 45rem;">
-        <img src="{% static 'images/aboutpagebeeds.jpg' %}" class="card-img-top" alt="...">
-        <div class="card-body text-center">
+        <img src="{{x.contact_card_image.url}}" class="card-img-top" alt="...">
+        <div class="card-body text-center contact-card-title">
             <p class="card-text contact-card-title">Tiffany.</p>
-            <p class="card-text contact-card-email">Tiffanysbeads@gmail.com</p>
-            <p class="card-text contact-card-phone">07754 556522</p>
+            <p class="card-text contact-card-title">{{ x.contact_section_info }}</p>
         </div>
         <div class="card-footer px-5 d-flex justify-content-between">
             <i class="fab fa-twitter"></i>
@@ -76,4 +77,6 @@ do-not-display {% else %} d-flex justify-content-center about-blurb-wrap {% endi
         </div>
     </div>
 </div>
+{% endfor %}
+{% endfor %}
 {% endblock content %}

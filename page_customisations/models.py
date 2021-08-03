@@ -173,6 +173,10 @@ class AboutPageCustomisation(models.Model):
     about_section_right_image = models.ImageField(null=True, blank=True, upload_to='about_page_images')
      
     contact_section_title = models.CharField(max_length=100, blank=False, null=False)
+    contact_section_blurb = models.TextField(max_length=250, blank=False, null=False, default='Short blurb')
+    contact_section_info = models.TextField(max_length=500, blank=False, null=False, default='Short blurb')
+    contact_card_image = models.ImageField(null=True, blank=True, upload_to='about_page_images/contact_page_images')
+
     do_not_display = models.BooleanField(verbose_name='Do not display',
                                 default=False,
                                 help_text='**Check this box to hide this specific styling.')
