@@ -199,9 +199,9 @@ class AboutPageCustomisationAdmin(admin.ModelAdmin):
             ('Contact Card', {
                 'classes': ('fieldset_titles',),
                 'fields': (
+                    'contact_card_title',
                     'contact_card_image',
-                    'contact_card_info',
-                    'contact_card_title'),
+                    'contact_card_info'),
         
         }),
             ('Social Media Links', {
@@ -231,9 +231,9 @@ class AboutPageCustomisationAdmin(admin.ModelAdmin):
 superadmin.register() to register for superuser admin
 """
 
-superadmin.register(AboutPageCustomisation, AboutPageCustomisationAdmin)
 superadmin.register(HomePageCustomisation, HomePageCustomisationAdmin)
 superadmin.register(HeaderCustomisation, HeaderCustomisationAdmin)
 superadmin.register(ProductsPageCustomisation, ProductsPageCustomisationAdmin)
 superadmin.register(GlobalSiteStyling, GlobalSiteStylingAdmin)
+superadmin.register(AboutPageCustomisation, AboutPageCustomisationAdmin)
 superadmin.register(User)

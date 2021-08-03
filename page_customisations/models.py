@@ -3,6 +3,47 @@ from djrichtextfield.models import RichTextField
 from colorfield.fields import ColorField
 
 
+class AboutPageCustomisation(models.Model):
+    styling_name = models.CharField(blank=False, null=False, max_length=55, default="Default")
+    about_section_title = models.CharField(max_length=100, blank=False, null=False)
+    about_section_blurb = models.TextField(max_length=250, blank=False, null=False, default='Short blurb')
+    about_section_content = RichTextField()
+    about_section_left_image = models.ImageField(null=True, blank=True, upload_to='about_page_images')
+    about_section_right_image = models.ImageField(null=True, blank=True, upload_to='about_page_images')
+     
+    contact_section_title = models.CharField(max_length=100, blank=False, null=False)
+    contact_section_blurb = models.TextField(max_length=250, blank=False, null=False, default='Short blurb')
+    contact_card_title = models.CharField(max_length=100, blank=False, null=False, default='Business Name')
+    contact_card_info = RichTextField()
+    contact_card_image = models.ImageField(null=True, blank=True, upload_to='about_page_images/contact_page_images')
+
+    twitter_link = models.URLField(max_length=200, default='Link to your Twitter Account')
+    linkedin_link = models.URLField(max_length=200, default='Link to your LinkedIn Account')
+    facebook_link = models.URLField(max_length=200, default='Link to your Facebook Account')
+    instagram_link = models.URLField(max_length=200, default='Link to your Instagram Account')
+    
+    do_not_display = models.BooleanField(verbose_name='Do not display',
+                                default=False,
+                                help_text='**Check this box to hide this specific styling.')
+    
+    
+    def save(self, *args, **kwargs):
+        if self.do_not_display == False:
+            try:
+                temp = AboutPageCustomisation.objects.get(do_not_display=False)
+                if self != temp:
+                    temp.do_not_display = True
+                    temp.save()
+            except AboutPageCustomisation.DoesNotExist:
+                pass
+        super(AboutPageCustomisation, self).save(*args, **kwargs)
+
+
+    
+    def __str__(self):
+        return self.styling_name
+
+
 
 class GlobalSiteStyling(models.Model):
     SITE_BORDERS = (
@@ -165,29 +206,3 @@ class ProductsPageCustomisation(models.Model):
         return self.products_page_styling
     
 
-class AboutPageCustomisation(models.Model):
-    styling_name = models.CharField(blank=False, null=False, max_length=55, default="Default")
-    about_section_title = models.CharField(max_length=100, blank=False, null=False)
-    about_section_blurb = models.TextField(max_length=250, blank=False, null=False, default='Short blurb')
-    about_section_content = RichTextField()
-    about_section_left_image = models.ImageField(null=True, blank=True, upload_to='about_page_images')
-    about_section_right_image = models.ImageField(null=True, blank=True, upload_to='about_page_images')
-     
-    contact_section_title = models.CharField(max_length=100, blank=False, null=False)
-    contact_section_blurb = models.TextField(max_length=250, blank=False, null=False, default='Short blurb')
-    contact_card_title = models.TextField(max_length=250, blank=False, null=False, default='Short blurb')
-    contact_card_info = RichTextField()
-    contact_card_image = models.ImageField(null=True, blank=True, upload_to='about_page_images/contact_page_images')
-
-    twitter_link = models.URLField(max_length=200, default='Link to your Twitter Account')
-    linkedin_link = models.URLField(max_length=200, default='Link to your LinkedIn Account')
-    facebook_link = models.URLField(max_length=200, default='Link to your Facebook Account')
-    instagram_link = models.URLField(max_length=200, default='Link to your Instagram Account')
-    
-    do_not_display = models.BooleanField(verbose_name='Do not display',
-                                default=False,
-                                help_text='**Check this box to hide this specific styling.')
-
-    
-    def __str__(self):
-        return self.styling_name
